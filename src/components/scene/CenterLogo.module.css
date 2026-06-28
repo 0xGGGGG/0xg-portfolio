@@ -1,0 +1,55 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+.gone {
+  opacity: 0;
+  transform: scale(0.92);
+}
+.l1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #fff;
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.4);
+}
+/* the line under 0xG: "works" by default, the hovered project's title on hover */
+.sub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.5em;
+}
+.l2 {
+  font-size: 12px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--dim);
+  transition: opacity 0.3s var(--ease-out);
+}
+.l2hidden {
+  opacity: 0;
+}
+.name {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: var(--c, var(--ink));
+  text-shadow: 0 0 16px var(--c, transparent);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+.nameShow {
+  opacity: 1;
+}

@@ -1,0 +1,64 @@
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    62% 62% at 32% 48%,
+    color-mix(in srgb, var(--c) 13%, transparent),
+    transparent 70%
+  );
+  transition: background 0.8s var(--ease-out);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+
+.hint {
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 16px;
+  border-radius: var(--pill-radius);
+  background: rgba(8, 8, 8, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  color: var(--dim);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+  animation: hintIn 0.8s var(--ease-out) both;
+}
+.hint i {
+  width: 3px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--faint);
+}
+@keyframes hintIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

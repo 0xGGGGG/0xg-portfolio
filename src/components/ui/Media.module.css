@@ -1,0 +1,131 @@
+.media {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.frame {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+  background: #050608;
+}
+.blur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1);
+  opacity: 0.5;
+}
+/* blurred video fill behind the contained video (fills the letterbox) */
+.bgVid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(22px) brightness(0.6);
+  transform: scale(1.14);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.picture {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+/* contain so nothing overflows the card — letterboxed over the blurred fill */
+.img,
+.video {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.img {
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+.img.loaded {
+  opacity: 1;
+}
+.cap {
+  flex: none;
+  margin-top: 8px;
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.video {
+  cursor: pointer;
+}
+
+/* ---- custom video controls: play/pause (left) · mute + fullscreen (right) ---- */
+.controls {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.55;
+  transition: opacity 0.2s var(--ease-out);
+}
+.frame:hover .controls,
+.controls:focus-within {
+  opacity: 1;
+}
+.cluster {
+  display: flex;
+  gap: 8px;
+}
+.controls button {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(8, 10, 16, 0.62);
+  backdrop-filter: blur(6px);
+  color: var(--ink);
+  transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.controls button:hover {
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.22);
+}
+
+/* fullscreen: frame fills the viewport; native controls take over */
+.frame:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  border-radius: 0;
+  background: #000;
+}
+.frame:fullscreen .controls {
+  display: none;
+}

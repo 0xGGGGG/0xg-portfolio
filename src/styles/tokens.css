@@ -1,0 +1,52 @@
+/* ============================================================================
+   Design tokens — ported from 0xGCG (styles.css :root).
+   The world is pitch-black, near-monochrome; the only saturated color is
+   one accent per project (its diamond glow + card rail + background tint),
+   derived from the project's ordinal as a temporal gradient (cool -> warm).
+   ========================================================================= */
+:root {
+  /* base palette */
+  --bg: #000000;
+  --ink: #e6e6e6;
+  --dim: #888888;
+  --faint: #5a5a5a;
+  --accent: #d6d6d6;
+
+  /* typography */
+  --font-mono: "SF Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* glow */
+  --glow-sm: 0 0 12px;
+  --glow-md: 0 0 18px;
+  --glow-lg: 0 0 24px;
+
+  /* glass panel */
+  --panel-bg: linear-gradient(180deg, rgba(8, 12, 20, 0.78), rgba(8, 12, 20, 0.55));
+  --panel-border: rgba(180, 180, 180, 0.16);
+  --hairline: rgba(180, 180, 180, 0.1);
+  --blur: 10px;
+
+  /* shape */
+  --radius: 4px;
+  --pill-radius: 99px;
+
+  /* temporal gradient endpoints — diamond hue lerps cool -> warm by ordinal.
+     (0xGCG stage palette for reference: init #5b7184, grow #27e0a0,
+      optimize #8be84b, overfit #e0742a, glitch #ff2bd6) */
+  --ring-cool: #27e0a0;
+  --ring-mid: #8be84b;
+  --ring-warm: #ff2bd6;
+
+  /* layout */
+  --bp-aside: 760px;
+  --topbar-h: 60px;
+
+  /* per-project accent (set at runtime on the document / section root) */
+  --c: var(--accent);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --t-reveal: 0.55s;
+  --t-hover: 0.18s;
+}

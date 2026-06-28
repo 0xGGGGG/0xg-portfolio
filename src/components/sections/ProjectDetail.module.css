@@ -1,0 +1,308 @@
+/* full-viewport horizontal card scroller — first card centered, snap, ≤90vh */
+.scroller {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  --card-w: min(560px, 46vw);
+  padding-inline: calc((100vw - var(--card-w)) / 2);
+  opacity: 0;
+  pointer-events: none; /* gaps stay click-through so the ring stays interactive */
+  transition: opacity 0.5s var(--ease-out);
+}
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+.scroller.open {
+  opacity: 1;
+}
+
+.card {
+  flex: 0 0 var(--card-w);
+  width: var(--card-w);
+  max-height: 90svh;
+  display: flex;
+  scroll-snap-align: center;
+  pointer-events: none;
+  transition: opacity 0.32s var(--ease-out), transform 0.32s var(--ease-out),
+    filter 0.32s var(--ease-out);
+}
+.scroller.open .card {
+  pointer-events: auto;
+}
+/* directional crossfade between projects (vertical scroll): the old fades out
+   (slower, travelling further in the scroll direction), the content swaps while
+   hidden, then the new fades back in */
+.scroller.fading .card {
+  transition-duration: 0.42s;
+  opacity: 0;
+  transform: translateY(calc(var(--dir, 1) * 80px));
+  filter: blur(8px);
+}
+/* the description card has no visible box — wider, transparent, over the scene */
+.cardWide {
+  flex-basis: min(680px, 60vw);
+  width: min(680px, 60vw);
+}
+/* media cards size to fit max-width AND max-height (so 9:16 fills tall on phones) */
+.cardMedia {
+  flex: 0 0 auto;
+  width: min(var(--card-w), calc(90svh * var(--ar)));
+  max-height: 90svh;
+}
+
+/* boxless description — title + prose directly over the constellation */
+.desc {
+  width: 100%;
+  max-height: 90svh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* marker highlight — each text line gets a hugging dark background (like a selection) */
+.mark,
+.markDim {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background: rgba(5, 7, 11, 0.74);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+.markDim {
+  background: rgba(5, 7, 11, 0.6);
+}
+
+.panel {
+  width: 100%;
+  max-height: 90svh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 30px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-left: 2px solid var(--c);
+  border-radius: var(--radius);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* media card follows its media's aspect (--ar, clamped 1:1…9:16). The article
+   (.cardMedia) sizes the card to fit both a max width and a max height so portrait
+   videos can grow tall on phones without overflowing. */
+.mediaCard {
+  width: 100%;
+  aspect-ratio: var(--ar, 1);
+  margin: auto 0;
+  padding: 12px;
+  border: 1px solid var(--panel-border);
+  border-left: 2px solid var(--c);
+  border-radius: var(--radius);
+  background: rgba(6, 8, 12, 0.6);
+  backdrop-filter: blur(var(--blur));
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+.mediaCard > :global(figure) {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+/* mobile: cards left-aligned (small margin) so the next card clearly peeks;
+   taller so the description doesn't need an inner scrollbar */
+@media (max-width: 759px) {
+  .scroller {
+    --card-w: 84vw;
+    align-items: flex-end;
+    padding-left: 14px;
+    padding-right: 24vw;
+    scroll-padding-left: 14px;
+    padding-bottom: 68px;
+    gap: 12px;
+  }
+  .card {
+    scroll-snap-align: start;
+  }
+  .cardWide {
+    flex-basis: 84vw;
+    width: 84vw;
+  }
+  /* phones: let 9:16 portrait media reach ~82svh (near full width if needed) */
+  .cardMedia {
+    width: min(96vw, calc(82svh * var(--ar)));
+    max-height: 82svh;
+  }
+  .card,
+  .panel,
+  .desc {
+    max-height: 84svh;
+  }
+}
+
+/* ---- carousel arrows: desktop bottom-right; hidden on mobile (swipe instead) ---- */
+.carouselNav {
+  position: fixed;
+  right: 30px;
+  bottom: 22px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+@media (max-width: 759px) {
+  .carouselNav {
+    display: none;
+  }
+}
+.carouselNav.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.carouselNav button {
+  width: 40px;
+  height: 40px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 12, 18, 0.55);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  font-size: 17px;
+  transition: all var(--t-hover);
+}
+.carouselNav button:hover:not(:disabled) {
+  border-color: var(--c);
+  color: #fff;
+  box-shadow: 0 0 18px -4px var(--c);
+}
+.carouselNav button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.cardCount {
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- description card ---- */
+.descHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+.eyebrow {
+  color: var(--c);
+  font-weight: 700;
+}
+.year {
+  color: var(--dim);
+}
+.draft {
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: rgba(224, 116, 42, 0.16);
+  color: #e0a472;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+.title {
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.42;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--dim);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.body {
+  font-size: 13.5px;
+  line-height: 2;
+  color: #d2d2d2;
+}
+.body :global(p) {
+  margin-bottom: 10px;
+}
+.body :global(a) {
+  color: #fff;
+  border-bottom: 1px solid var(--c);
+}
+.body :global(strong) {
+  color: #fff;
+  font-weight: 600;
+}
+.body :global(em) {
+  color: #d8d8d8;
+}
+
+/* ---- cta card ---- */
+.cta {
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  justify-content: center;
+}
+.ctaHead {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 380px;
+}
+
+/* desktop: header + description one size bigger (placed last so it wins over the
+   base .body rule). mobile keeps the base sizes. */
+@media (min-width: 760px) {
+  .title {
+    font-size: clamp(30px, 3.6vw, 44px);
+  }
+  .subtitle {
+    font-size: 13px;
+  }
+  .body {
+    font-size: 15px;
+  }
+}

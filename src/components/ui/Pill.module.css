@@ -1,0 +1,35 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: var(--pill-radius);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #cdd8e4;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: border-color var(--t-hover), background var(--t-hover), box-shadow var(--t-hover),
+    color var(--t-hover);
+}
+a.pill:hover {
+  color: #fff;
+  border-color: var(--c, #fff);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 16px -4px var(--c, rgba(255, 255, 255, 0.4));
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--c, var(--accent));
+  box-shadow: 0 0 8px var(--c, var(--accent));
+  flex: none;
+}
+.solid {
+  border-color: var(--c, var(--accent));
+  color: #fff;
+  background: color-mix(in srgb, var(--c, var(--accent)) 16%, transparent);
+}
