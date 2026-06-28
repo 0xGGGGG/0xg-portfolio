@@ -1,0 +1,21 @@
+# Build context for `fly deploy` — note this obeys .dockerignore, NOT .gitignore,
+# so public/assets (git-ignored) IS included and baked into the image.
+node_modules
+dist
+.git
+.gitignore
+.github
+
+# not needed to build/serve the app (the manifest already inlines project data;
+# 3D models + media are published under public/assets):
+content
+__resources__
+scripts
+
+# docs / config not used at build
+CLAUDE.md
+TODOs.md
+TODOs.content.md
+.claude
+*.log
+.DS_Store

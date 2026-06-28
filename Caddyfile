@@ -1,0 +1,13 @@
+:80
+
+root * /srv
+encode zstd gzip
+
+# media + hashed build assets can be cached a while; index.html is always re-checked
+header /assets/* Cache-Control "public, max-age=604800"
+header /index.html Cache-Control "no-cache, must-revalidate"
+
+# single-page app: unknown paths fall back to index.html
+# (deep links are hash-based, /#<slug>, so they resolve client-side)
+try_files {path} /index.html
+file_server
