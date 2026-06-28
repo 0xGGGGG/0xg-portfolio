@@ -24,8 +24,10 @@ export function useNavInput() {
       // horizontal-dominant -> let the carousel scroll natively
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return
       if (overMedia(e.target)) return // over a video/image: leave it alone
-      // vertical -> project nav everywhere else (block native card scroll)
-      e.preventDefault()
+      // vertical -> step the project. NOTE: listener is passive (no preventDefault)
+      // so the browser can scroll the carousel on the compositor thread without
+      // blocking our WebGL render loop. The app shell is fixed/overflow-hidden, so
+      // there's nothing to scroll vertically anyway.
       const ad = Math.abs(e.deltaY)
       if (silence) clearTimeout(silence)
       silence = setTimeout(() => (armed = true), 130) // re-arm after events stop (mouse)
@@ -70,7 +72,7 @@ export function useNavInput() {
     }
     const onUp = () => (dragging = false)
 
-    window.addEventListener('wheel', onWheel, { passive: false })
+    window.addEventListener('wheel', onWheel, { passive: true })
     window.addEventListener('keydown', onKey)
     window.addEventListener('pointerdown', onDown)
     window.addEventListener('pointermove', onMove)

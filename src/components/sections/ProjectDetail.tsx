@@ -41,28 +41,48 @@ export default function ProjectDetail() {
   const p = PROJECTS[shown]
   const cardCount = 2 + p.media.length
 
-  useEffect(() => {
-    if (track.current) track.current.scrollTo({ left: 0 })
-  }, [shown])
-
-  // nearest-centred card (cards are narrower than the viewport + centred, so
-  // scrollLeft/clientWidth is NOT the index — measure each card's centre)
-  const onScroll = () => {
+  // Cache each card's centre. offsetLeft/offsetWidth are layout reads — doing them
+  // per scroll event forces synchronous reflow and starves the WebGL render loop.
+  // Recompute only when the project changes or on resize.
+  const centers = useRef<number[]>([])
+  const clientW = useRef(0)
+  const recompute = () => {
     const el = track.current
     if (!el) return
-    const center = el.scrollLeft + el.clientWidth / 2
-    let best = 0
-    let bestD = Infinity
-    for (let i = 0; i < el.children.length; i++) {
-      const c = el.children[i] as HTMLElement
-      const cc = c.offsetLeft + c.offsetWidth / 2
-      const d = Math.abs(cc - center)
-      if (d < bestD) {
-        bestD = d
-        best = i
+    clientW.current = el.clientWidth
+    centers.current = Array.from(el.children).map(
+      (c) => (c as HTMLElement).offsetLeft + (c as HTMLElement).offsetWidth / 2,
+    )
+  }
+  useEffect(() => {
+    if (track.current) track.current.scrollTo({ left: 0 })
+    recompute()
+  }, [shown])
+  useEffect(() => {
+    window.addEventListener('resize', recompute)
+    return () => window.removeEventListener('resize', recompute)
+  }, [])
+
+  // rAF-throttled + layout-free: nearest cached centre to the scroll centre
+  const rafId = useRef(0)
+  const onScroll = () => {
+    if (rafId.current) return
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = 0
+      const el = track.current
+      if (!el || !centers.current.length) return
+      const center = el.scrollLeft + clientW.current / 2
+      let best = 0
+      let bestD = Infinity
+      for (let i = 0; i < centers.current.length; i++) {
+        const d = Math.abs(centers.current[i] - center)
+        if (d < bestD) {
+          bestD = d
+          best = i
+        }
       }
-    }
-    setCard(best)
+      setCard(best)
+    })
   }
 
   const goto = (n: number) => {
