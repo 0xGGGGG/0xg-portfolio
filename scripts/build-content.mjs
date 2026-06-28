@@ -14,7 +14,9 @@ import {
 import { processImage, processVideo, listImports, hasFfmpeg } from './lib/media.mjs'
 
 const FORCE = process.argv.includes('--force')
-const SITE = 'https://0xg.gg'
+// site origin used for QR deep links (https://<domain>/#<slug>). Override per
+// deploy: SITE_URL=https://example.com npm run content
+const SITE = (process.env.SITE_URL || 'https://0xg.gg').replace(/\/+$/, '')
 
 async function exists(p) {
   try { await fs.access(p); return true } catch { return false }
@@ -38,9 +40,9 @@ async function scaffoldMdx(proj, mdxPath, readme) {
     featured: proj.slug === '0xgcg' || undefined,
     tags: [],
     links: readme.links,
-    qrTarget: `${SITE}/#${proj.slug}`,
     media: [],
   }
+  // qrTarget is derived from SITE_URL at build time, not pinned in the file
   // strip undefined
   Object.keys(data).forEach((k) => data[k] === undefined && delete data[k])
   const body = readme.body || `_TODO: write the ${data.title} description._`

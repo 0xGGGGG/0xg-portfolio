@@ -16,12 +16,27 @@ fly launch --no-deploy      # creates the app (keep app name 0xg-portfolio)
 
 ```bash
 # 1. ONLY when you've added/replaced media in a project's imports/:
-npm run content             # regenerates public/assets + the manifest from imports
-npm run models              # (only if you changed a project's model.glb)
+SITE_URL=https://0xg.gg npm run content   # regenerates public/assets + manifest
+npm run models                            # (only if you changed a project's model.glb)
 
 # 2. deploy (ships your local dir incl. public/assets):
 fly deploy
 ```
+
+### Domain (`SITE_URL`)
+
+The site's own domain is **not hardcoded** — it only feeds the **QR deep links**
+(`https://<domain>/#<slug>`), which are baked when you run `npm run content`. The
+app itself is domain-agnostic at runtime (deep links use `location.hash`).
+
+```bash
+SITE_URL=https://0xg.gg npm run content          # production domain
+SITE_URL=https://0xg-portfolio.fly.dev npm run content   # before the custom domain
+```
+
+Defaults to `https://0xg.gg` if unset. Set it, run `content`, then `fly deploy`.
+(The QR is generated at content-time, not in the Docker build, so it's a local
+step — `fly deploy` only runs `vite build`.)
 
 `git commit && git push` is independent — just source backup (code + manifest).
 You do **not** need to push before deploying.
