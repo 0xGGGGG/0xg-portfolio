@@ -38,8 +38,7 @@ function ImageMedia({ item }: { item: MediaItem }) {
 
 function VideoMedia({ item }: { item: MediaItem }) {
   const video = useRef<HTMLVideoElement>(null)
-  const bg = useRef<HTMLVideoElement>(null) // blurred fill behind the contained video
-  const [playing, setPlaying] = useState(true)
+  const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(true)
   const [fs, setFs] = useState(false)
   const userPaused = useRef(false)
@@ -47,20 +46,20 @@ function VideoMedia({ item }: { item: MediaItem }) {
   useEffect(() => {
     const el = video.current
     if (!el) return
+    // load + play ONLY while on screen (preload=none keeps off-screen videos at
+    // zero bandwidth); pause when it scrolls away.
     const io = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
           if (!userPaused.current) el.play().catch(() => {})
         } else el.pause()
       },
-      { threshold: 0.35 },
+      { threshold: 0.4 },
     )
     io.observe(el)
-    // we fullscreen the VIDEO element itself (native fullscreen + controls, and the
-    // only thing iOS allows), so our button and the native state stay in sync.
     const onFs = () => setFs(document.fullscreenElement === el)
     const onBegin = () => setFs(true) // iOS
-    const onEnd = () => setFs(false) // iOS
+    const onEnd = () => setFs(false)
     document.addEventListener('fullscreenchange', onFs)
     el.addEventListener('webkitbeginfullscreen', onBegin)
     el.addEventListener('webkitendfullscreen', onEnd)
@@ -94,51 +93,27 @@ function VideoMedia({ item }: { item: MediaItem }) {
       | (HTMLVideoElement & { webkitEnterFullscreen?: () => void })
       | null
     if (!el) return
-    if (document.fullscreenElement) {
-      document.exitFullscreen().catch(() => {})
-    } else if (el.requestFullscreen) {
-      el.requestFullscreen().catch(() => {})
-    } else if (el.webkitEnterFullscreen) {
-      el.webkitEnterFullscreen() // iOS Safari
-    }
-  }
-
-  const syncBg = (play: boolean) => {
-    const g = bg.current
-    const v = video.current
-    if (!g || !v) return
-    if (Math.abs(g.currentTime - v.currentTime) > 0.3) g.currentTime = v.currentTime
-    if (play) g.play().catch(() => {})
-    else g.pause()
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {})
+    else if (el.requestFullscreen) el.requestFullscreen().catch(() => {})
+    else if (el.webkitEnterFullscreen) el.webkitEnterFullscreen()
   }
 
   return (
     <figure className={styles.media}>
       <div className={styles.frame}>
-        {/* blurred, muted copy filling the letterbox (driven by the main video) */}
-        <video ref={bg} className={styles.bgVid} muted loop playsInline preload="metadata" aria-hidden tabIndex={-1}>
-          {item.sources.map((s) => (
-            <source key={s.src} src={s.src} type={s.type} />
-          ))}
-        </video>
+        {/* cheap blurred poster fills the letterbox (was a 2nd video — too heavy) */}
+        {item.poster && <img className={styles.bgVid} src={item.poster} alt="" aria-hidden />}
         <video
           ref={video}
           className={styles.video}
           poster={item.poster}
-          autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           controls={fs} /* native controls (with scrubber) in fullscreen */
-          onPlay={() => {
-            setPlaying(true)
-            syncBg(true)
-          }}
-          onPause={() => {
-            setPlaying(false)
-            syncBg(false)
-          }}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
           onClick={fs ? undefined : togglePlay}
         >
           {item.sources.map((s) => (
@@ -146,7 +121,6 @@ function VideoMedia({ item }: { item: MediaItem }) {
           ))}
         </video>
 
-        {/* custom controls (hidden in fullscreen — native ones take over there) */}
         <div className={styles.controls}>
           <div className={styles.cluster}>
             <button onClick={togglePlay} aria-label={playing ? 'Pause' : 'Play'}>
@@ -168,7 +142,7 @@ function VideoMedia({ item }: { item: MediaItem }) {
   )
 }
 
-/* ---- icons (16px, currentColor) ---- */
+/* ---- icons (18px, currentColor) ---- */
 const fill = { width: 18, height: 18, viewBox: '0 0 24 24', fill: 'currentColor' as const }
 const line = {
   width: 18,

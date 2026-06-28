@@ -12,7 +12,7 @@ import PostFX from './PostFX'
 export default function SceneCanvas() {
   return (
     <Canvas
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       camera={{ position: CAMERA_POS, fov: FOV }}
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       onCreated={({ gl }) => {
