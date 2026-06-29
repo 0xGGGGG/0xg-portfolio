@@ -135,7 +135,7 @@ export const PROJECTS: Project[] = [
       "Fetch the information from website: . save it as md and also assets relative.",
       "Explain the project, that installation and my involvement"
     ],
-    "body": "*Relate — Talk With Me* is an installation by **Andrea Familari** at **uzwei**\nin the Dortmunder U, Dortmund — a room where visitors speak with the work and\nthe work answers.\n\nI built the voice: an **NLX.ai** conversational agent wired into **Unreal Engine**\nas a reusable Blueprint component, so the runtime could listen, route intent and\nrespond in real time inside the engine driving the piece."
+    "body": "_Relate — Talk With Me_ is an installation by **Andrea Familari** at **uzwei**\nin the Dortmunder U, Dortmund — a room where visitors speak with the work and\nthe work answers.\n\nDeveloped integration with NLX.ai service between UnrealEngine. Delivered as Blueprint component."
   },
   {
     "code": "2025_0002",
@@ -212,7 +212,7 @@ export const PROJECTS: Project[] = [
     "todos": [
       "Fetch the information from videos, also export a meaningful screenshot image."
     ],
-    "body": "**TOLSim** is a small physics + mixed-reality builder prototype, made to\nexperiment with a custom **kinetic joint system**.\nThere is one type of joint and one type of stick; from\nthose two primitives you assemble different geometric forms in passthrough MR.\n\nI built it in **Unreal Engine** as an XR app — joints and sticks that snap\ntogether with simulated physics."
+    "body": "**TOLSim** is a small physics + mixed-reality builder prototype, made to\nexperiment with a custom **kinetic joint system**.\nThere is one type of joint and one type of stick; from\nthose two primitives you assemble different geometric forms in passthrough MR.\n\nUsed UnrealEngine and its MetaXR Plugins. Some amount of C++ for some procedural\nvariant generation, then mostly blueprints."
   },
   {
     "code": "2025_0003",
@@ -382,7 +382,7 @@ export const PROJECTS: Project[] = [
       "Explain the hackhathon then my application.",
       "I'll also add more photos here later on."
     ],
-    "body": "For the **Cyberdelic Hackathon** (Berlin, 8–9 Nov 2025), with the **Cyberdelic\nNexus Society**, I built a **Meta Quest** mixed-reality app that alters your\nvision from real-time sensor data.\n\nHere the signal came from a **microphone** (audio-reactive) and from **touching\nfruits and vegetables** (a biotron sensor) — but the idea generalizes to any\nsensor: EEG, pressure, heart rate. I later experimented with touching walls and\nsurfaces to open custom **portals** rendering GLSL shaders I was curating."
+    "body": "For the **Cyberdelic Hackathon** (Berlin, 8–9 Nov 2025), I built a **Meta Quest**\nmixed-reality app that alters your vision from real-time sensor data.\n\nHere the signal came from a **microphone** (audio-reactive) and from **touching\nfruits and vegetables** (a biotron sensor) — but the idea generalizes to any\nsensor: EEG, pressure, heart rate.\n\nI later experimented with touching walls and surfaces to open custom **portals**\nrendering GLSL shaders."
   },
   {
     "code": "2025_0004",
@@ -546,7 +546,7 @@ export const PROJECTS: Project[] = [
       "Explain the project, that solo exhibition (SOMA Art Berlin) and my involvement",
       "I'll also add more photos here later on."
     ],
-    "body": "*Nostalgia is the Extended Feedback* is a solo exhibition by **Joaquina Salgado**\nat **SOMA Art, Berlin** (2025).\n\nMy support: **electronics, programming, setup** — a **Raspberry Pi Zero 2**\ndriving the screens that play the animation loops, and a **Raspberry Pi Pico**\nfor the trackball."
+    "body": "_Nostalgia is the Extended Feedback_ is a game and solo exhibition by **Joaquina Salgado**\nat **SOMA Art, Berlin** (2025).\n\nI did **electronics, programming, setup** — a **Raspberry Pi Zero 2**\ndriving the screens that play the animation loops, and a **Raspberry Pi Pico**\nfor the trackball."
   },
   {
     "code": "2026_0001",
@@ -715,7 +715,7 @@ export const PROJECTS: Project[] = [
       "Explain the collective, jam and research formats very shortly (1-2 sentences) and my involment and participation.",
       "I'll also add more photos and media here later on."
     ],
-    "body": "I join jams regularly to perform visuals and bring custom-made tools, devices and\nscenes to experiment with — and, more recently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, working across disciplines with others in the\ncollective.\n\nWith gratitude to the **Collective Chaos Emblematic e.V.** crew — one set\n[shared here](https://www.instagram.com/p/DVdold8CrQw/) by the collective."
+    "body": "I'm an active member of Chaos Emblematic e.V. joining jams regularly\nto perform visuals and bring custom-made tools, devices and scenes\nto experiment with — and, more recently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, at the same time working across disciplines with others in the\ncollective."
   },
   {
     "code": "2026_0002",
@@ -786,6 +786,6 @@ export const PROJECTS: Project[] = [
       "Get also the information about the project etc from the directory mentioned above. at the end of the day, it'll be hosted at 0xgcg.0xg.gg.",
       "I'll also add more information later on. project directory may also include interested videos."
     ],
-    "body": "**0xGCG — Grow. Corrupt. Glitch.** is a three-minute immersive video loop for the\nprojection hall at **Kunstkraftwerk, Leipzig**, developed through the **Node\nInstitute** *Creative Masterclass: Immersive Room*."
+    "body": "**0xGCG — Grow. Corrupt. Glitch.** It's a vibe.\nprojection hall at **Kunstkraftwerk, Leipzig**, being developed alongside with the **Node\nInstitute** _Creative Masterclass: Immersive Room_."
   }
 ]
