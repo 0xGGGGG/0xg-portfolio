@@ -74,7 +74,10 @@
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   background: rgba(5, 7, 11, 0.74);
-  padding: 0.1em 0.3em;
+  /* fixed horizontal padding (not em) so the title, subtitle and body all start
+     at the same left edge regardless of font size (em padding made the big title
+     sit further right than the body) */
+  padding: 0.1em 8px;
   border-radius: 3px;
 }
 .markDim {
@@ -443,6 +446,12 @@
   gap: 8px;
   justify-content: center;
   max-width: 380px;
+}
+/* accent-tinted glyph inside a link pill (artist / venue / site …) */
+.linkIco {
+  display: inline-flex;
+  flex: none;
+  color: var(--c);
 }
 
 /* desktop: header + description one size bigger (placed last so it wins over the

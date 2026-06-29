@@ -20,6 +20,8 @@ export interface MediaItem {
   height: number
   /** tiny blurred data URL placeholder (images) */
   placeholder?: string
+  /** higher-quality source (mp4 / webp) swapped in only when fullscreened */
+  hqSrc?: string
   alt: string
   caption?: string
   credit?: string
@@ -29,7 +31,15 @@ export interface MediaItem {
   duration?: number
 }
 
-export type LinkKind = 'site' | 'event' | 'press' | 'video' | 'source' | 'social'
+export type LinkKind =
+  | 'site'
+  | 'event'
+  | 'press'
+  | 'video'
+  | 'source'
+  | 'social'
+  | 'artist'
+  | 'venue'
 
 export interface ProjectLink {
   label: string

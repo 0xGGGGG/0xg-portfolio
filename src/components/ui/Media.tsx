@@ -9,7 +9,18 @@ export default function Media({ item }: { item: MediaItem }) {
 
 function ImageMedia({ item }: { item: MediaItem }) {
   const [loaded, setLoaded] = useState(false)
+  // once fullscreened, swap to the higher-quality source (and keep it)
+  const [hq, setHq] = useState(false)
   const frame = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const el = frame.current
+    if (!el) return
+    const onFs = () => {
+      if (document.fullscreenElement === el && item.hqSrc) setHq(true)
+    }
+    document.addEventListener('fullscreenchange', onFs)
+    return () => document.removeEventListener('fullscreenchange', onFs)
+  }, [item.hqSrc])
   const toggleFs = () => {
     const el = frame.current
     if (!el) return
@@ -23,12 +34,10 @@ function ImageMedia({ item }: { item: MediaItem }) {
           <img className={styles.blur} src={item.placeholder} alt="" aria-hidden />
         )}
         <picture className={styles.picture}>
-          {item.sources.map((s) => (
-            <source key={s.src} type={s.type} srcSet={s.src} />
-          ))}
+          {!hq && item.sources.map((s) => <source key={s.src} type={s.type} srcSet={s.src} />)}
           <img
             className={`${styles.img} ${loaded ? styles.loaded : ''}`}
-            src={item.src}
+            src={hq && item.hqSrc ? item.hqSrc : item.src}
             width={item.width}
             height={item.height}
             alt={item.alt}
@@ -78,7 +87,12 @@ function VideoMedia({ item }: { item: MediaItem }) {
   const [playing, setPlaying] = useState(false)
   const [muted, setMuted] = useState(true)
   const [fs, setFs] = useState(false)
+  // once fullscreened, swap to the higher-quality source (and keep it)
+  const [hq, setHq] = useState(false)
   const userPaused = useRef(false)
+  const hqRef = useRef(false)
+  const resumeAt = useRef(0)
+  const wasPlaying = useRef(false)
 
   useEffect(() => {
     const el = video.current
@@ -94,8 +108,20 @@ function VideoMedia({ item }: { item: MediaItem }) {
       { threshold: 0.4 },
     )
     io.observe(el)
-    const onFs = () => setFs(document.fullscreenElement === el)
-    const onBegin = () => setFs(true) // iOS
+    // when entering fullscreen, remember position + play state and bump to HQ
+    const enterHq = () => {
+      if (!item.hqSrc || hqRef.current) return
+      resumeAt.current = el.currentTime
+      wasPlaying.current = !el.paused
+      hqRef.current = true
+      setHq(true)
+    }
+    const onFs = () => {
+      const inFs = document.fullscreenElement === el
+      setFs(inFs)
+      if (inFs) enterHq()
+    }
+    const onBegin = () => { setFs(true); enterHq() } // iOS
     const onEnd = () => setFs(false)
     document.addEventListener('fullscreenchange', onFs)
     el.addEventListener('webkitbeginfullscreen', onBegin)
@@ -106,7 +132,25 @@ function VideoMedia({ item }: { item: MediaItem }) {
       el.removeEventListener('webkitbeginfullscreen', onBegin)
       el.removeEventListener('webkitendfullscreen', onEnd)
     }
-  }, [])
+  }, [item.hqSrc])
+
+  // reload at the HQ source, restoring the exact frame + play state
+  useEffect(() => {
+    if (!hq) return
+    const el = video.current
+    if (!el) return
+    const onMeta = () => {
+      try {
+        el.currentTime = resumeAt.current
+      } catch {
+        /* noop */
+      }
+      if (wasPlaying.current) el.play().catch(() => {})
+    }
+    el.addEventListener('loadedmetadata', onMeta, { once: true })
+    el.load()
+    return () => el.removeEventListener('loadedmetadata', onMeta)
+  }, [hq])
 
   const togglePlay = () => {
     const el = video.current
@@ -144,6 +188,7 @@ function VideoMedia({ item }: { item: MediaItem }) {
           ref={video}
           className={styles.video}
           poster={item.poster}
+          src={hq && item.hqSrc ? item.hqSrc : undefined}
           muted
           loop
           playsInline
@@ -153,9 +198,7 @@ function VideoMedia({ item }: { item: MediaItem }) {
           onPause={() => setPlaying(false)}
           onClick={fs ? undefined : togglePlay}
         >
-          {item.sources.map((s) => (
-            <source key={s.src} src={s.src} type={s.type} />
-          ))}
+          {!hq && item.sources.map((s) => <source key={s.src} src={s.src} type={s.type} />)}
         </video>
 
         <div className={styles.controls}>

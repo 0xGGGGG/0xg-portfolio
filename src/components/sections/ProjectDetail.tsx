@@ -201,14 +201,83 @@ function DescriptionCard({ p }: { p: Project }) {
       {/* WIP projects have no CTA card, so the links live on the description */}
       {p.wip && p.links.length > 0 && (
         <div className={styles.descLinks}>
-          {p.links.map((l) => (
-            <Pill key={l.url} as="a" href={l.url} accent={p.accent} dot>
-              {l.label}
-            </Pill>
-          ))}
+          <LinkPills links={p.links} accent={p.accent} />
         </div>
       )}
     </div>
+  )
+}
+
+// kind-based glyph for a link pill (person / pin / globe …)
+const icoProps = {
+  width: 13,
+  height: 13,
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.8,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+}
+function LinkIcon({ kind }: { kind: string }) {
+  switch (kind) {
+    case 'artist':
+      return (
+        <svg {...icoProps} aria-hidden>
+          <circle cx="12" cy="8" r="3.4" />
+          <path d="M5.5 20a6.5 6.5 0 0 1 13 0" />
+        </svg>
+      )
+    case 'venue':
+      return (
+        <svg {...icoProps} aria-hidden>
+          <path d="M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z" />
+          <circle cx="12" cy="11" r="2.2" />
+        </svg>
+      )
+    case 'event':
+      return (
+        <svg {...icoProps} aria-hidden>
+          <rect x="4" y="5" width="16" height="16" rx="2" />
+          <path d="M4 9.5h16M8.5 3v4M15.5 3v4" />
+        </svg>
+      )
+    case 'social':
+      return (
+        <svg {...icoProps} aria-hidden>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.4 7" />
+        </svg>
+      )
+    case 'video':
+      return (
+        <svg {...icoProps} aria-hidden>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M10 8.5l5.5 3.5-5.5 3.5z" fill="currentColor" stroke="none" />
+        </svg>
+      )
+    default:
+      return (
+        <svg {...icoProps} aria-hidden>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M3.5 12h17M12 3.5c2.6 2.4 2.6 14.6 0 17M12 3.5c-2.6 2.4-2.6 14.6 0 17" />
+        </svg>
+      )
+  }
+}
+
+function LinkPills({ links, accent }: { links: Project['links']; accent: string }) {
+  return (
+    <>
+      {links.map((l) => (
+        <Pill key={l.url} as="a" href={l.url} accent={accent}>
+          <span className={styles.linkIco}>
+            <LinkIcon kind={l.kind} />
+          </span>
+          {l.label}
+        </Pill>
+      ))}
+    </>
   )
 }
 
@@ -231,11 +300,7 @@ function CtaCard({ p }: { p: Project }) {
       <h3 className={styles.ctaHead}>Reach this work</h3>
       {p.links.length > 0 && (
         <div className={styles.links}>
-          {p.links.map((l) => (
-            <Pill key={l.url} as="a" href={l.url} accent={p.accent} dot>
-              {l.label}
-            </Pill>
-          ))}
+          <LinkPills links={p.links} accent={p.accent} />
         </div>
       )}
       <QrCode src={p.qr} target={p.qrTarget} />

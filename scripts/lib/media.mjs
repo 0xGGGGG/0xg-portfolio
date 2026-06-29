@@ -9,8 +9,10 @@ import { ensureDir, isStale, safeName, humanize } from './util.mjs'
 
 const exec = promisify(execFile)
 
-const IMG_MAX = 2000 // cap longest side
-const VID_MAX = 1280 // cap longest side
+const IMG_MAX = 2000 // cap longest side (inline)
+const IMG_HQ_MAX = 3200 // cap longest side (fullscreen, higher quality)
+const VID_MAX = 1280 // cap longest side (inline)
+const VID_HQ_MAX = 1600 // cap longest side (fullscreen, higher bitrate)
 const PUBLIC_PREFIX = (code, file) => `/assets/${code}/${file}`
 
 let ffmpegOK = null
@@ -30,22 +32,34 @@ export async function processImage(srcPath, outDir, code, force) {
   const base = safeName(srcPath)
   const webpRel = PUBLIC_PREFIX(code, `${base}.webp`)
   const avifRel = PUBLIC_PREFIX(code, `${base}.avif`)
+  const hqRel = PUBLIC_PREFIX(code, `${base}.hq.webp`)
   const webpAbs = path.join(outDir, `${base}.webp`)
   const avifAbs = path.join(outDir, `${base}.avif`)
+  const hqAbs = path.join(outDir, `${base}.hq.webp`)
   await ensureDir(outDir)
 
   const meta = await sharp(srcPath).rotate().metadata()
   const w = meta.width ?? 0
   const h = meta.height ?? 0
-  const scale = Math.min(1, IMG_MAX / Math.max(w, h || 1))
+  const longest = Math.max(w, h || 1)
+  const scale = Math.min(1, IMG_MAX / longest)
   const outW = Math.round(w * scale)
   const outH = Math.round(h * scale)
+  const hqScale = Math.min(1, IMG_HQ_MAX / longest)
 
   if (force || (await isStale(srcPath, webpAbs))) {
     await sharp(srcPath).rotate().resize(outW, outH).webp({ quality: 80 }).toFile(webpAbs)
   }
   if (force || (await isStale(srcPath, avifAbs))) {
     await sharp(srcPath).rotate().resize(outW, outH).avif({ quality: 55 }).toFile(avifAbs)
+  }
+  // high-quality variant served only when the card is fullscreened
+  if (force || (await isStale(srcPath, hqAbs))) {
+    await sharp(srcPath)
+      .rotate()
+      .resize(Math.round(w * hqScale), Math.round(h * hqScale))
+      .webp({ quality: 92 })
+      .toFile(hqAbs)
   }
 
   // tiny blurred placeholder (base64 data URL)
@@ -62,6 +76,7 @@ export async function processImage(srcPath, outDir, code, force) {
     width: outW,
     height: outH,
     placeholder,
+    hqSrc: hqRel,
     alt: humanize(srcPath),
   }
 }
@@ -84,19 +99,22 @@ export async function processVideo(srcPath, outDir, code, force) {
   if (!(await hasFfmpeg())) return null
   const base = safeName(srcPath)
   const mp4Rel = PUBLIC_PREFIX(code, `${base}.mp4`)
+  const hqMp4Rel = PUBLIC_PREFIX(code, `${base}.hq.mp4`)
   const posterRel = PUBLIC_PREFIX(code, `${base}.jpg`)
   const mp4Abs = path.join(outDir, `${base}.mp4`)
+  const hqMp4Abs = path.join(outDir, `${base}.hq.mp4`)
   const posterAbs = path.join(outDir, `${base}.jpg`)
   await ensureDir(outDir)
 
   const { width, height, duration } = await ffprobeDims(srcPath)
   const longest = Math.max(width, height)
-  const scaleFilter =
-    longest > VID_MAX
+  const scaleTo = (cap) =>
+    longest > cap
       ? width >= height
-        ? `scale=${VID_MAX}:-2`
-        : `scale=-2:${VID_MAX}`
+        ? `scale=${cap}:-2`
+        : `scale=-2:${cap}`
       : 'scale=trunc(iw/2)*2:trunc(ih/2)*2'
+  const scaleFilter = scaleTo(VID_MAX)
 
   if (force || (await isStale(srcPath, mp4Abs))) {
     await exec('ffmpeg', [
@@ -108,6 +126,20 @@ export async function processVideo(srcPath, outDir, code, force) {
       '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
       '-c:a', 'aac', '-b:a', '128k', '-ac', '2',
       mp4Abs,
+    ], { maxBuffer: 1 << 26 })
+  }
+
+  // high-quality variant served only when the video is fullscreened
+  if (force || (await isStale(srcPath, hqMp4Abs))) {
+    await exec('ffmpeg', [
+      '-nostdin', '-y', '-loglevel', 'error',
+      '-i', srcPath,
+      '-vf', scaleTo(VID_HQ_MAX),
+      '-c:v', 'libx264', '-preset', 'fast', '-crf', '23',
+      '-maxrate', '5M', '-bufsize', '10M',
+      '-pix_fmt', 'yuv420p', '-movflags', '+faststart',
+      '-c:a', 'aac', '-b:a', '160k', '-ac', '2',
+      hqMp4Abs,
     ], { maxBuffer: 1 << 26 })
   }
 
@@ -145,6 +177,7 @@ export async function processVideo(srcPath, outDir, code, force) {
     width: outW,
     height: outH,
     duration: Math.round(duration),
+    hqSrc: hqMp4Rel,
     alt: humanize(srcPath),
   }
 }

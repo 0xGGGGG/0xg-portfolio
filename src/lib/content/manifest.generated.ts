@@ -23,9 +23,14 @@ export const PROJECTS: Project[] = [
     "tags": [],
     "links": [
       {
+        "label": "Andrea Familari",
+        "url": "https://famifax.com",
+        "kind": "artist"
+      },
+      {
         "label": "uzwei · Dortmunder U",
         "url": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/",
-        "kind": "event"
+        "kind": "venue"
       },
       {
         "label": "nlx.ai",
@@ -53,6 +58,7 @@ export const PROJECTS: Project[] = [
         "width": 1414,
         "height": 2000,
         "placeholder": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAABQBgCdASoUABwAPu1ur1KppiQiqAgBMB2JbACdMzLwwCBKPTUYWjHceMBz4UTyCz2w1HqN+vAlr4mMAAD+JqcXQzgJ4MYBcEBtl/sWFoGDJIYEruqQ5ZlsMTx7LWPKLgJ3/ii+OdYzEgSmaboy8EVaKTMBgLmfSCr5892l8VGTSd2N1LTxbIX6dOIOrfOPw5gQTLMdNgtcGKtC0L9RPWFE7s1Sya0HmbQpLdprS0SGnZrvuDt8zbP2/zyuJ9IAONl79MwvB6wnodTrniuqsU+ugPJ0GDIT2+d2ePl4SrLzBi8TylqcQkEZVO/LH4GHLz5cjXbhVHuNZ3YfZ5V8kT1Jr9bK6WNEZkUcAA==",
+        "hqSrc": "/assets/2025_0001/relate-1-main.hq.webp",
         "alt": "The Relate avatar — a 3D head scanned from the artist that visitors talk with",
         "caption": "A voice-bot avatar, scanned from the artist himself.",
         "credit": "© Andrea Familari",
@@ -74,6 +80,7 @@ export const PROJECTS: Project[] = [
         "width": 1500,
         "height": 2000,
         "placeholder": "data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAADQBQCdASoUABsAPu1qq1EppaOiqAqpMB2JbAC7M4UCrf/i2HSBcMHf2yx42UUsFemRU6cvpWAuAOj0mXJeu7bJdlnyn85FPsoyx6jApxGlE3oA1ru3PXDxnU64EfZZY6BTIKdZ8JU4yLLufTYlGANcMr+oZbn/7GNDjl3A9eBWubpcm+w6KwkuF1gt4HeH12zrU3THAO1GqCD3+Qmkev3DoGW/cebbjbJUxgpCggvxuGo42Ssc23cdy2SZa33cv+yBkgBF7QzfbvvdJmkN9bOcZJs5y1FWnUUnMzAyeE4Km1TYBQK1x9BFv1cFgTNe2JZNm4PjYTRxfmjVRfkAAA==",
+        "hqSrc": "/assets/2025_0001/relate-2.hq.webp",
         "alt": "Visitor in conversation with the Relate installation at uzwei",
         "caption": "A bench encounter — speaking with the work.",
         "credit": "© Anna Rumeld",
@@ -95,6 +102,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1333,
         "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JbACdACFsaZeapkTpwpsAAP7qUVcOgoNFjFB9WLSnSl4dJZB6VNFJWJfeNfwRW8JFXx41PFcQ7ySDk+RSSB6zbr9GcXte3wjsr+dtEfw6Hv7o+uazuRY2eOermk4jy/sMrkEBe9Ddyfo9skcawghFGpxAYMh+EPgS61ooV8AAAA==",
+        "hqSrc": "/assets/2025_0001/relate-3.hq.webp",
         "alt": "The Relate installation space at Dortmunder U",
         "caption": "The installation at uzwei, Dortmunder U.",
         "credit": "© Anna Rumeld",
@@ -116,6 +124,7 @@ export const PROJECTS: Project[] = [
         "width": 1500,
         "height": 2000,
         "placeholder": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAACQBQCdASoUABsAPu1oqVAppiOiqA1RMB2JZgCdABGN8r5gU3MQr6lq/tCXrPb21/wtgsut2AD+zQcBNBUMO10y6HtQrSi+XhNsoxcESecBJdbQ2NVYEsUkh35Zzy6kM2yPDgQtSrrTYvOaPyVf/U39E0+hmJqPo81So6yiCsam5/8W+1z01j+azFDwpHudwnkYfHk54RXVX6VXz5lq/fgb0uoRHAhx1WyEo4rJLQ29Dx5SQl5xIBXCLZ+DL8fgKtgTwMoqfyCMYWcypGfkXOw5Ya40PdGmWrIAAA==",
+        "hqSrc": "/assets/2025_0001/relate-4.hq.webp",
         "alt": "The Relate avatar screen in the gallery",
         "caption": "The avatar, mid-conversation.",
         "credit": "© Anna Rumeld",
@@ -163,6 +172,7 @@ export const PROJECTS: Project[] = [
         "width": 1024,
         "height": 1024,
         "duration": 189,
+        "hqSrc": "/assets/2025_0002/com-oculus-vrshell-20250410-130921-0.hq.mp4",
         "alt": "Building a joint structure in mixed reality",
         "caption": "Snapping sticks and joints into form, in passthrough MR."
       },
@@ -179,6 +189,7 @@ export const PROJECTS: Project[] = [
         "width": 1024,
         "height": 1024,
         "duration": 117,
+        "hqSrc": "/assets/2025_0002/com-oculus-vrshell-20250410-132556-0.hq.mp4",
         "alt": "Assembling geometric forms from the joint system",
         "caption": "Each piece is a patented joint or stick — combined into geometry."
       },
@@ -195,6 +206,7 @@ export const PROJECTS: Project[] = [
         "width": 1024,
         "height": 1024,
         "duration": 236,
+        "hqSrc": "/assets/2025_0002/com-oculus-vrshell-20250410-131550-0.hq.mp4",
         "alt": "Extended MR building session",
         "caption": "A longer build, testing the system's range of forms."
       }
@@ -223,14 +235,14 @@ export const PROJECTS: Project[] = [
     "tags": [],
     "links": [
       {
+        "label": "Cyberdelic Nexus Society",
+        "url": "https://cyberdelicnexus.carrd.co/",
+        "kind": "artist"
+      },
+      {
         "label": "luma · event",
         "url": "https://luma.com/x66rm5gu",
         "kind": "event"
-      },
-      {
-        "label": "cyberdelic nexus",
-        "url": "https://cyberdelicnexus.carrd.co/",
-        "kind": "social"
       }
     ],
     "qrTarget": "https://0xg.gg/#altered",
@@ -253,6 +265,7 @@ export const PROJECTS: Project[] = [
         "width": 1248,
         "height": 832,
         "placeholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAQBACdASoUAA0APu1iqk2ppaQiMAgBMB2JbAAAXKdbiRNboVPjrhmNAAD+8tgMvevExu2O9BUIfKVlrRgRo/aLi3N87EjKun+9hsiJFM91P6nhJaSIESK4svjiwzE5I8Ej4Cwf8Daq59Wa/7nJJjxQG3///J9/Id39Jubcj67fudF/gAAAAA==",
+        "hqSrc": "/assets/2025_0003/photo-2026-06-28-10-55-14-am.hq.webp",
         "alt": "Cyberdelic Hackathon banner, Berlin, 8–9 Nov 2025",
         "caption": "Cyberdelic Hackathon — Berlin, 8–9 November 2025."
       },
@@ -272,6 +285,7 @@ export const PROJECTS: Project[] = [
         "width": 832,
         "height": 1248,
         "placeholder": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4IPAAAAAQBwCdASoUAB4APu1kq0+ppSOiMBgIATAdiWwAtRqDyDXb/4aXAG9I38K0jZ8J+CULCJMw0lzPrjl7oLvfurAdAAD+9o1EWLRgj0qmcqU1GMkGdltTErxEtuZnT9Uzk4zVL7JofAXNcGKYDChVz5mGBjsoT+5osTCEC0skjSWzuE7dxHkYXMCeerqsTzgONvEE6zeIC7a0nEYJEj56Rj6GyiO6M9BisA/QkoE7J5MzwO2gio9//gv1YdjBKtA+tMKz0tGY8X74660Vy4X08enenaGQvNUBZ2VU17N1s5FC0OzyQs+yhMoIMnpMjcd6AAA=",
+        "hqSrc": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.hq.webp",
         "alt": "At the Cyberdelic Hackathon, Berlin",
         "caption": "At the Cyberdelic Hackathon, Berlin."
       },
@@ -288,6 +302,7 @@ export const PROJECTS: Project[] = [
         "width": 720,
         "height": 1280,
         "duration": 33,
+        "hqSrc": "/assets/2025_0003/img-0074.hq.mp4",
         "alt": "The sensor rig — laptop, electronics and a biotron fruit sensor",
         "caption": "Touching fruit drives the visuals — the biotron sensor rig."
       },
@@ -304,6 +319,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 54,
+        "hqSrc": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.hq.mp4",
         "alt": "Vision altered in real time over an industrial venue",
         "caption": "Passthrough vision re-rendered from live sensor data."
       },
@@ -320,6 +336,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 49,
+        "hqSrc": "/assets/2025_0003/com-oculus-metacam-20251203-133539-0.hq.mp4",
         "alt": "Audio-reactive vision alteration",
         "caption": "Microphone input bends the world as you move through it."
       },
@@ -339,6 +356,7 @@ export const PROJECTS: Project[] = [
         "width": 1248,
         "height": 832,
         "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JYwDCgCG8lI01aXfzA9kAAP7yqi1SQ0BvJOFFXfewiJcOnn7rTvpPJJoKZk3jWB57GXVPLXDSBpcCcPuOFHGbhNpPyAAA",
+        "hqSrc": "/assets/2025_0003/photo-2026-06-28-10-55-42-am.hq.webp",
         "alt": "Hackathon, Berlin"
       },
       {
@@ -357,6 +375,7 @@ export const PROJECTS: Project[] = [
         "width": 1248,
         "height": 832,
         "placeholder": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoUAA0APu1iqU2ppaOiMAgBMB2JbACdMoADTrNGCaFDfiwptnoAAP70Kn3pYkLtGT5o5IaJw2db520V1ywbe3TfyZSbgHsrBJaRT0Hjfj7h4fuodPa21UG10Bb7EJgKOl5gAuQtbBfOc5JB8yTO//7UEAA=",
+        "hqSrc": "/assets/2025_0003/photo-2026-06-28-10-56-04-am.hq.webp",
         "alt": "Hackathon, Berlin"
       }
     ],
@@ -387,7 +406,17 @@ export const PROJECTS: Project[] = [
     "tags": [],
     "links": [
       {
-        "label": "joaquinasalgado.com/nitef",
+        "label": "Joaquina Salgado",
+        "url": "https://joaquinasalgado.com",
+        "kind": "artist"
+      },
+      {
+        "label": "SOMA Art, Berlin",
+        "url": "https://www.instagram.com/somaart.berlin/",
+        "kind": "venue"
+      },
+      {
+        "label": "exhibition page",
         "url": "https://joaquinasalgado.com/nitef",
         "kind": "site"
       }
@@ -412,6 +441,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1336,
         "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JYkwARhYgAgFyfcgAAP7wQMtENpw8noQ/tLv6yz3ezyg7wzoi7rU/ewb+uSV+DvXQRgHUCS8Bk1XeaiyLpAX8iG8nHvwCsucMOopJqeWywoHgAAA=",
+        "hqSrc": "/assets/2025_0004/nitef-intro.hq.webp",
         "alt": "Nostalgia is the Extended Feedback — exhibition image by Joaquina Salgado",
         "caption": "Nostalgia is the Extended Feedback — SOMA Art, Berlin.",
         "credit": "© Joaquina Salgado",
@@ -433,6 +463,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1500,
         "placeholder": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAACQBQCdASoUABsAPu1qrVCppaQiqAqpMB2JbACdMoR5j3UBVVw7/yBtQ5VrPUcg0PikXwJZJAD+40sx2UurjJYwX2kUYuKrVQpMa5pewwVwXGRf5R31CcYl7sDROzikEurZPnqLau7b8OxrHe2IgIh8+kI7uMjIj0jH3VZszK9hxP/HxypEcT8GIMdqAa8QsNXhZMSR+5k1IuWQXEcYs5gVxiwLtUPhKR0dUlvFMlX+XqGCETA3KbfQwNarDXVUc8XxHvwsM6wAAA==",
+        "hqSrc": "/assets/2025_0004/img-0119.hq.webp",
         "alt": "A CRT-like screen in an inflatable sculpture, held with a trackball",
         "caption": "A small screen nested in a glowing inflatable base; a trackball in hand."
       },
@@ -449,6 +480,7 @@ export const PROJECTS: Project[] = [
         "width": 720,
         "height": 1280,
         "duration": 30,
+        "hqSrc": "/assets/2025_0004/img-0117.hq.mp4",
         "alt": "The installation in the dark gallery",
         "caption": "Aquatic feedback imagery, navigated by trackball."
       },
@@ -468,6 +500,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1500,
         "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASoUABsAPu1mq06ppaOiKA1RMB2JQBhQAhyxL85BpAHlQUlJ5B9rQAD+weaZdu0fOxp31b5fiKV15nGtuPI0j9HoRs/yb5iU7fsFyvnG87XeYvasQOCrtA+NrgbgkfCgJzBo31S4XitI42tIAAAAAA==",
+        "hqSrc": "/assets/2025_0004/img-0120.hq.webp",
         "alt": "Wider view of the installation at SOMA Art Berlin",
         "caption": "Inflated translucent forms and glowing pedestals in the brick hall."
       },
@@ -487,6 +520,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1500,
         "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoUAA8APu1iqk2ppaQiMAgBMB2JQBWAA86dmWL2ZoYVwAD+wFFullAjuySHUMLtggdix//ttWWaWsX8JJoc5Zb9r1om0jsEv3tlEGyypj4FeoWqC/pLGJtFcAINCftos96ZQC0pd3CnsiVQgAA=",
+        "hqSrc": "/assets/2025_0004/img-0121.hq.webp",
         "alt": "The piece in the SOMA Art space"
       },
       {
@@ -505,6 +539,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1500,
         "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwAwCdASoUABsAPu1urlIppiQiqAgBMB2JZgC1F68AqAgfXbhUWVooAP7s/Q0ilUuePsXCpn3q8prJTvZeSpn4Exxz2gTyP/E5lblHnc7zn1lubdR3y/kljbuLF1T2sURQKuQW5/gfwdkVCw0NSa5SDC0D4suH3Mbx76e0OBdd7CsY15N7iInRTQ+pHAPv8uDoefdn5LesAA==",
+        "hqSrc": "/assets/2025_0004/img-0122.hq.webp",
         "alt": "The piece in the SOMA Art space"
       }
     ],
@@ -531,6 +566,11 @@ export const PROJECTS: Project[] = [
     "status": "ready",
     "tags": [],
     "links": [
+      {
+        "label": "Collective Chaos Emblematic",
+        "url": "https://www.instagram.com/chaosemblematic/",
+        "kind": "artist"
+      },
       {
         "label": "@chaosemblematic · post",
         "url": "https://www.instagram.com/p/DVdold8CrQw/",
@@ -562,6 +602,7 @@ export const PROJECTS: Project[] = [
         "width": 2000,
         "height": 1500,
         "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABQBACdASoUAA8APu1iqU2ppaQiMAgBMB2JbACdH8GJtgKVNuf/8PfS+qAQAP3vLsz535T03gTLjJmp+x76Nf3Qts2o5Lr9rRKuuAbXQc170b4OieSQknhodLpR+mTyvsLFnDqdwsBdrgLWYCSui8QyPkAeOKnIGPkPH2nEZPddnIJV7qmZinqlstvI24pEgxb8C4aAAAA=",
+        "hqSrc": "/assets/2026_0001/img-0516.hq.webp",
         "alt": "Performers before a large psychedelic-glitch projection at a jam",
         "caption": "Live visuals at a Chaos jam — movement meeting the projection."
       },
@@ -578,6 +619,7 @@ export const PROJECTS: Project[] = [
         "width": 720,
         "height": 1280,
         "duration": 55,
+        "hqSrc": "/assets/2026_0001/ig-dvdold8crqw.hq.mp4",
         "alt": "Live-visuals clip shared by Collective Chaos Emblematic",
         "caption": "A jam set, shared by the collective.",
         "credit": "via @chaosemblematic",
@@ -596,6 +638,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 124,
+        "hqSrc": "/assets/2026_0001/dream-machine-0.hq.mp4",
         "alt": "Dream Machine — live visuals",
         "caption": "Dream Machine"
       },
@@ -612,6 +655,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 65,
+        "hqSrc": "/assets/2026_0001/fractal-stories-0.hq.mp4",
         "alt": "Fractal Stories — live visuals",
         "caption": "Fractal Stories"
       },
@@ -628,6 +672,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 67,
+        "hqSrc": "/assets/2026_0001/space-oddities-2.hq.mp4",
         "alt": "Space Oddities — live visuals",
         "caption": "Space Oddities"
       },
@@ -644,6 +689,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 30,
+        "hqSrc": "/assets/2026_0001/sukushi-1.hq.mp4",
         "alt": "Sukushi — live visuals",
         "caption": "Sukushi"
       },
@@ -660,6 +706,7 @@ export const PROJECTS: Project[] = [
         "width": 1280,
         "height": 720,
         "duration": 74,
+        "hqSrc": "/assets/2026_0001/celluloscope-0.hq.mp4",
         "alt": "Celluloscope — live visuals",
         "caption": "Celluloscope"
       }
@@ -696,6 +743,11 @@ export const PROJECTS: Project[] = [
         "kind": "site"
       },
       {
+        "label": "Kunstkraftwerk, Leipzig",
+        "url": "https://www.kunstkraftwerk-leipzig.com/en/",
+        "kind": "venue"
+      },
+      {
         "label": "Node Institute · masterclass",
         "url": "https://thenodeinstitute.org/courses/creative-masterclass-immersive-room/",
         "kind": "site"
@@ -726,6 +778,7 @@ export const PROJECTS: Project[] = [
         "width": 1600,
         "height": 900,
         "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAgCdASoUAAsAPu1iqk2ppaQiMAgBMB2JaQAAeyAA/vDuK+9B6MpzfwrAAA==",
+        "hqSrc": "/assets/2026_0002/0xgcg-1-intro.hq.webp",
         "alt": "0xGCG title — Grow. Corrupt. Glitch.",
         "caption": "The seed: a matrix rain resolves into the title."
       }
