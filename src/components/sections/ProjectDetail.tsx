@@ -39,7 +39,9 @@ export default function ProjectDetail() {
   }, [active, shown, open])
 
   const p = PROJECTS[shown]
-  const cardCount = 2 + p.media.length
+  // WIP projects drop the closing "reach this work" card — the WIP band on the
+  // first media + the links on the description carry it instead.
+  const cardCount = 1 + p.media.length + (p.wip ? 0 : 1)
 
   // Cache each card's centre. offsetLeft/offsetWidth are layout reads — doing them
   // per scroll event forces synchronous reflow and starves the WebGL render loop.
@@ -106,25 +108,29 @@ export default function ProjectDetail() {
           <DescriptionCard p={p} />
         </article>
 
-        {p.media.map((m) => {
+        {p.media.map((m, i) => {
           // card aspect follows the media, clamped: min 1:1 (square) … max 9:16 (portrait)
           const ar = Math.min(1, Math.max(9 / 16, m.width / m.height))
+          const wip = !!p.wip && i === 0
           return (
             <article
               className={`${styles.card} ${styles.cardMedia}`}
               key={m.src}
               style={{ ['--ar' as string]: ar }}
             >
-              <div className={styles.mediaCard} data-stop-nav>
+              <div className={`${styles.mediaCard} ${wip ? styles.wipMedia : ''}`} data-stop-nav>
+                {wip && <WipBand />}
                 <Media item={m} />
               </div>
             </article>
           )
         })}
 
-        <article className={styles.card}>
-          <CtaCard p={p} />
-        </article>
+        {!p.wip && (
+          <article className={styles.card}>
+            <CtaCard p={p} />
+          </article>
+        )}
       </div>
 
       <div className={`${styles.carouselNav} ${open ? styles.open : ''}`} data-stop-nav>
@@ -191,6 +197,29 @@ function DescriptionCard({ p }: { p: Project }) {
           {p.body}
         </ReactMarkdown>
       </div>
+
+      {/* WIP projects have no CTA card, so the links live on the description */}
+      {p.wip && p.links.length > 0 && (
+        <div className={styles.descLinks}>
+          {p.links.map((l) => (
+            <Pill key={l.url} as="a" href={l.url} accent={p.accent} dot>
+              {l.label}
+            </Pill>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// glitchy hazard band stamped over the first media of a work-in-progress project
+function WipBand() {
+  const label = '⚠ WORK IN PROGRESS ⚠'
+  return (
+    <div className={styles.wipBand} aria-hidden>
+      <span className={styles.wipBandText} data-text={label}>
+        {label}
+      </span>
     </div>
   )
 }

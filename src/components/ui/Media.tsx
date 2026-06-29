@@ -9,9 +9,16 @@ export default function Media({ item }: { item: MediaItem }) {
 
 function ImageMedia({ item }: { item: MediaItem }) {
   const [loaded, setLoaded] = useState(false)
+  const frame = useRef<HTMLDivElement>(null)
+  const toggleFs = () => {
+    const el = frame.current
+    if (!el) return
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {})
+    else if (el.requestFullscreen) el.requestFullscreen().catch(() => {})
+  }
   return (
     <figure className={styles.media}>
-      <div className={styles.frame}>
+      <div className={styles.frame} ref={frame}>
         {item.placeholder && (
           <img className={styles.blur} src={item.placeholder} alt="" aria-hidden />
         )}
@@ -30,6 +37,14 @@ function ImageMedia({ item }: { item: MediaItem }) {
             onLoad={() => setLoaded(true)}
           />
         </picture>
+        <div className={styles.controls}>
+          <span />
+          <div className={styles.cluster}>
+            <button onClick={toggleFs} aria-label="Fullscreen">
+              <IconFullscreen />
+            </button>
+          </div>
+        </div>
       </div>
       <Caption item={item} />
     </figure>
@@ -41,7 +56,19 @@ function Caption({ item }: { item: MediaItem }) {
   return (
     <figcaption className={styles.cap}>
       {item.caption}
-      {item.credit && <span className={styles.credit}>{item.credit}</span>}
+      {item.credit &&
+        (item.creditUrl ? (
+          <a
+            className={`${styles.credit} ${styles.creditLink}`}
+            href={item.creditUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {item.credit} ↗
+          </a>
+        ) : (
+          <span className={styles.credit}>{item.credit}</span>
+        ))}
     </figcaption>
   )
 }

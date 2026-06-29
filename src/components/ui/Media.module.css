@@ -80,6 +80,16 @@
   font-size: 10px;
   letter-spacing: 0.06em;
 }
+a.creditLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s, opacity 0.15s;
+}
+a.creditLink:hover {
+  opacity: 1;
+  color: var(--c, #fff);
+  text-decoration: underline;
+}
 
 .video {
   cursor: pointer;

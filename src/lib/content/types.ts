@@ -23,6 +23,8 @@ export interface MediaItem {
   alt: string
   caption?: string
   credit?: string
+  /** source link for the credit (Instagram post / web page the media came from) */
+  creditUrl?: string
   /** seconds (video) */
   duration?: number
 }

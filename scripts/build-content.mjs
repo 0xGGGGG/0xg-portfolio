@@ -99,7 +99,7 @@ function mergeMedia(processed, overrides) {
     if (!m) continue
     byKey.delete(key)
     const { file, ...rest } = m
-    ordered.push({ ...rest, ...(o.alt && { alt: o.alt }), ...(o.caption && { caption: o.caption }), ...(o.credit && { credit: o.credit }) })
+    ordered.push({ ...rest, ...(o.alt && { alt: o.alt }), ...(o.caption && { caption: o.caption }), ...(o.credit && { credit: o.credit }), ...(o.creditUrl && { creditUrl: o.creditUrl }) })
   }
   // append any processed not listed
   for (const m of byKey.values()) {

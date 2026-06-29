@@ -101,6 +101,7 @@
    (.cardMedia) sizes the card to fit both a max width and a max height so portrait
    videos can grow tall on phones without overflowing. */
 .mediaCard {
+  position: relative;
   width: 100%;
   aspect-ratio: var(--ar, 1);
   margin: auto 0;
@@ -113,6 +114,124 @@
   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
+}
+
+/* ---- work-in-progress media: hazard band + glitchy scanline overlay ---- */
+.wipMedia {
+  overflow: hidden;
+  border-left-color: #e0742a;
+}
+.wipMedia::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(224, 116, 42, 0.06) 3px,
+    rgba(0, 0, 0, 0.14) 4px
+  );
+  mix-blend-mode: overlay;
+  animation: wipFlicker 3.2s steps(2) infinite;
+}
+.wipBand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e0742a 0,
+    #e0742a 13px,
+    #0a0806 13px,
+    #0a0806 26px
+  );
+  border-bottom: 2px solid #ffb060;
+  box-shadow: 0 0 26px rgba(224, 116, 42, 0.55), inset 0 -8px 20px rgba(0, 0, 0, 0.5);
+}
+.wipBandText {
+  position: relative;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(8, 6, 4, 0.9);
+  padding: 4px 14px;
+  border-radius: 2px;
+  text-shadow: 0 0 8px rgba(255, 176, 96, 0.8);
+  animation: wipBlink 2.6s steps(1) infinite;
+}
+.wipBandText::before,
+.wipBandText::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  padding: 4px 14px;
+  background: rgba(8, 6, 4, 0.9);
+  color: #fff;
+  overflow: hidden;
+}
+.wipBandText::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff2bd6;
+  clip-path: inset(0 0 52% 0);
+  animation: wipShift 1.7s steps(2) infinite alternate;
+}
+.wipBandText::after {
+  left: -2px;
+  text-shadow: 2px 0 #27e0a0;
+  clip-path: inset(52% 0 0 0);
+  animation: wipShift 2.3s steps(2) infinite alternate-reverse;
+}
+@keyframes wipShift {
+  0% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(2px);
+  }
+}
+@keyframes wipBlink {
+  0%,
+  88%,
+  100% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.45;
+  }
+  92% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0.6;
+  }
+}
+@keyframes wipFlicker {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+/* WIP description links (no CTA card on WIP projects) */
+.descLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
 }
 .mediaCard > :global(figure) {
   flex: 1;

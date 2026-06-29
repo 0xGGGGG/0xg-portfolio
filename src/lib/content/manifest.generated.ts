@@ -55,7 +55,8 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAABQBgCdASoUABwAPu1ur1KppiQiqAgBMB2JbACdMzLwwCBKPTUYWjHceMBz4UTyCz2w1HqN+vAlr4mMAAD+JqcXQzgJ4MYBcEBtl/sWFoGDJIYEruqQ5ZlsMTx7LWPKLgJ3/ii+OdYzEgSmaboy8EVaKTMBgLmfSCr5892l8VGTSd2N1LTxbIX6dOIOrfOPw5gQTLMdNgtcGKtC0L9RPWFE7s1Sya0HmbQpLdprS0SGnZrvuDt8zbP2/zyuJ9IAONl79MwvB6wnodTrniuqsU+ugPJ0GDIT2+d2ePl4SrLzBi8TylqcQkEZVO/LH4GHLz5cjXbhVHuNZ3YfZ5V8kT1Jr9bK6WNEZkUcAA==",
         "alt": "The Relate avatar — a 3D head scanned from the artist that visitors talk with",
         "caption": "A voice-bot avatar, scanned from the artist himself.",
-        "credit": "© Andrea Familari"
+        "credit": "© Andrea Familari",
+        "creditUrl": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/"
       },
       {
         "kind": "image",
@@ -75,7 +76,8 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAADQBQCdASoUABsAPu1qq1EppaOiqAqpMB2JbAC7M4UCrf/i2HSBcMHf2yx42UUsFemRU6cvpWAuAOj0mXJeu7bJdlnyn85FPsoyx6jApxGlE3oA1ru3PXDxnU64EfZZY6BTIKdZ8JU4yLLufTYlGANcMr+oZbn/7GNDjl3A9eBWubpcm+w6KwkuF1gt4HeH12zrU3THAO1GqCD3+Qmkev3DoGW/cebbjbJUxgpCggvxuGo42Ssc23cdy2SZa33cv+yBkgBF7QzfbvvdJmkN9bOcZJs5y1FWnUUnMzAyeE4Km1TYBQK1x9BFv1cFgTNe2JZNm4PjYTRxfmjVRfkAAA==",
         "alt": "Visitor in conversation with the Relate installation at uzwei",
         "caption": "A bench encounter — speaking with the work.",
-        "credit": "© Anna Rumeld"
+        "credit": "© Anna Rumeld",
+        "creditUrl": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/"
       },
       {
         "kind": "image",
@@ -95,7 +97,8 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JbACdACFsaZeapkTpwpsAAP7qUVcOgoNFjFB9WLSnSl4dJZB6VNFJWJfeNfwRW8JFXx41PFcQ7ySDk+RSSB6zbr9GcXte3wjsr+dtEfw6Hv7o+uazuRY2eOermk4jy/sMrkEBe9Ddyfo9skcawghFGpxAYMh+EPgS61ooV8AAAA==",
         "alt": "The Relate installation space at Dortmunder U",
         "caption": "The installation at uzwei, Dortmunder U.",
-        "credit": "© Anna Rumeld"
+        "credit": "© Anna Rumeld",
+        "creditUrl": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/"
       },
       {
         "kind": "image",
@@ -115,7 +118,8 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAACQBQCdASoUABsAPu1oqVAppiOiqA1RMB2JZgCdABGN8r5gU3MQr6lq/tCXrPb21/wtgsut2AD+zQcBNBUMO10y6HtQrSi+XhNsoxcESecBJdbQ2NVYEsUkh35Zzy6kM2yPDgQtSrrTYvOaPyVf/U39E0+hmJqPo81So6yiCsam5/8W+1z01j+azFDwpHudwnkYfHk54RXVX6VXz5lq/fgb0uoRHAhx1WyEo4rJLQ29Dx5SQl5xIBXCLZ+DL8fgKtgTwMoqfyCMYWcypGfkXOw5Ya40PdGmWrIAAA==",
         "alt": "The Relate avatar screen in the gallery",
         "caption": "The avatar, mid-conversation.",
-        "credit": "© Anna Rumeld"
+        "credit": "© Anna Rumeld",
+        "creditUrl": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/"
       }
     ],
     "todos": [
@@ -253,20 +257,23 @@ export const PROJECTS: Project[] = [
         "caption": "Cyberdelic Hackathon — Berlin, 8–9 November 2025."
       },
       {
-        "kind": "video",
-        "src": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.mp4",
+        "kind": "image",
+        "src": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.webp",
         "sources": [
           {
-            "type": "video/mp4",
-            "src": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.mp4"
+            "type": "image/avif",
+            "src": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.webp"
           }
         ],
-        "poster": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 54,
-        "alt": "Vision altered in real time over an industrial venue",
-        "caption": "Passthrough vision re-rendered from live sensor data."
+        "width": 832,
+        "height": 1248,
+        "placeholder": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4IPAAAAAQBwCdASoUAB4APu1kq0+ppSOiMBgIATAdiWwAtRqDyDXb/4aXAG9I38K0jZ8J+CULCJMw0lzPrjl7oLvfurAdAAD+9o1EWLRgj0qmcqU1GMkGdltTErxEtuZnT9Uzk4zVL7JofAXNcGKYDChVz5mGBjsoT+5osTCEC0skjSWzuE7dxHkYXMCeerqsTzgONvEE6zeIC7a0nEYJEj56Rj6GyiO6M9BisA/QkoE7J5MzwO2gio9//gv1YdjBKtA+tMKz0tGY8X74660Vy4X08enenaGQvNUBZ2VU17N1s5FC0OzyQs+yhMoIMnpMjcd6AAA=",
+        "alt": "At the Cyberdelic Hackathon, Berlin",
+        "caption": "At the Cyberdelic Hackathon, Berlin."
       },
       {
         "kind": "video",
@@ -283,6 +290,22 @@ export const PROJECTS: Project[] = [
         "duration": 33,
         "alt": "The sensor rig — laptop, electronics and a biotron fruit sensor",
         "caption": "Touching fruit drives the visuals — the biotron sensor rig."
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.mp4"
+          }
+        ],
+        "poster": "/assets/2025_0003/com-oculus-metacam-20251129-205303-0.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 54,
+        "alt": "Vision altered in real time over an industrial venue",
+        "caption": "Passthrough vision re-rendered from live sensor data."
       },
       {
         "kind": "video",
@@ -316,24 +339,6 @@ export const PROJECTS: Project[] = [
         "width": 1248,
         "height": 832,
         "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoUAA0APu1iqk2ppaQiMAgBMB2JYwDCgCG8lI01aXfzA9kAAP7yqi1SQ0BvJOFFXfewiJcOnn7rTvpPJJoKZk3jWB57GXVPLXDSBpcCcPuOFHGbhNpPyAAA",
-        "alt": "Hackathon, Berlin"
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2025_0003/photo-2026-06-28-10-56-01-am.webp"
-          }
-        ],
-        "width": 832,
-        "height": 1248,
-        "placeholder": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4IPAAAAAQBwCdASoUAB4APu1kq0+ppSOiMBgIATAdiWwAtRqDyDXb/4aXAG9I38K0jZ8J+CULCJMw0lzPrjl7oLvfurAdAAD+9o1EWLRgj0qmcqU1GMkGdltTErxEtuZnT9Uzk4zVL7JofAXNcGKYDChVz5mGBjsoT+5osTCEC0skjSWzuE7dxHkYXMCeerqsTzgONvEE6zeIC7a0nEYJEj56Rj6GyiO6M9BisA/QkoE7J5MzwO2gio9//gv1YdjBKtA+tMKz0tGY8X74660Vy4X08enenaGQvNUBZ2VU17N1s5FC0OzyQs+yhMoIMnpMjcd6AAA=",
         "alt": "Hackathon, Berlin"
       },
       {
@@ -409,7 +414,8 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JYkwARhYgAgFyfcgAAP7wQMtENpw8noQ/tLv6yz3ezyg7wzoi7rU/ewb+uSV+DvXQRgHUCS8Bk1XeaiyLpAX8iG8nHvwCsucMOopJqeWywoHgAAA=",
         "alt": "Nostalgia is the Extended Feedback — exhibition image by Joaquina Salgado",
         "caption": "Nostalgia is the Extended Feedback — SOMA Art, Berlin.",
-        "credit": "© Joaquina Salgado · joaquinasalgado.com/nitef"
+        "credit": "© Joaquina Salgado",
+        "creditUrl": "https://joaquinasalgado.com/nitef"
       },
       {
         "kind": "image",
@@ -574,7 +580,8 @@ export const PROJECTS: Project[] = [
         "duration": 55,
         "alt": "Live-visuals clip shared by Collective Chaos Emblematic",
         "caption": "A jam set, shared by the collective.",
-        "credit": "via @chaosemblematic"
+        "credit": "via @chaosemblematic",
+        "creditUrl": "https://www.instagram.com/p/DVdold8CrQw/"
       },
       {
         "kind": "video",
