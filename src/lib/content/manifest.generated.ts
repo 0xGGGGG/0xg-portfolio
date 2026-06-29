@@ -146,9 +146,7 @@ export const PROJECTS: Project[] = [
     "seq": 2,
     "ordinal": 1,
     "title": "TOLSim",
-    "by": [
-      "Melodi"
-    ],
+    "by": [],
     "role": "MR Prototype",
     "place": "Turkey",
     "date": "2025",
@@ -214,7 +212,7 @@ export const PROJECTS: Project[] = [
     "todos": [
       "Fetch the information from videos, also export a meaningful screenshot image."
     ],
-    "body": "**TOLSim** is a small physics + mixed-reality builder prototype, made to\nexperiment with a custom **kinetic joint system** that a kinetic-architect friend\ndesigned and patented. There is one type of joint and one type of stick; from\nthose two primitives you assemble different geometric forms in passthrough MR.\n\nI built it in **Unreal Engine** as an XR app — joints and sticks that snap\ntogether with simulated physics, so the patented system can be felt and tested by\nhand. It was prototyped to support an application for a government grant in Turkey."
+    "body": "**TOLSim** is a small physics + mixed-reality builder prototype, made to\nexperiment with a custom **kinetic joint system**.\nThere is one type of joint and one type of stick; from\nthose two primitives you assemble different geometric forms in passthrough MR.\n\nI built it in **Unreal Engine** as an XR app — joints and sticks that snap\ntogether with simulated physics."
   },
   {
     "code": "2025_0003",
