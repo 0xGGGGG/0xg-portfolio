@@ -267,6 +267,14 @@
   .card {
     scroll-snap-align: start;
   }
+  /* iOS: the marker-highlighted title/body text was grabbing text selection (+
+     the long-press callout) on tap/swipe, fighting the paging. Disable it on
+     mobile only — desktop keeps text selectable for copy. */
+  .scroller {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
   .cardWide {
     flex-basis: 84vw;
     width: 84vw;
