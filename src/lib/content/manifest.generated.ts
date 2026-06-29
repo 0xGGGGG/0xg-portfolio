@@ -437,19 +437,9 @@ export const PROJECTS: Project[] = [
     "ordinal": 4,
     "title": "Chaos Jam & Research",
     "subtitle": "Collective Chaos Emblematic e.V.",
-    "by": [
-      "Collective Chaos Emblematic e.V."
-    ],
-    "role": "Live visuals · custom tools · research",
-    "place": "Berlin",
-    "date": "2026 — ongoing",
+    "by": [],
     "status": "ready",
-    "tags": [
-      "Live Visuals",
-      "Performance",
-      "Spatial Computing",
-      "Research"
-    ],
+    "tags": [],
     "links": [
       {
         "url": "https://www.instagram.com/p/DY5RrX9irhg",
@@ -484,6 +474,86 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABQBACdASoUAA8APu1iqU2ppaQiMAgBMB2JbACdH8GJtgKVNuf/8PfS+qAQAP3vLsz535T03gTLjJmp+x76Nf3Qts2o5Lr9rRKuuAbXQc170b4OieSQknhodLpR+mTyvsLFnDqdwsBdrgLWYCSui8QyPkAeOKnIGPkPH2nEZPddnIJV7qmZinqlstvI24pEgxb8C4aAAAA=",
         "alt": "Performers before a large psychedelic-glitch projection at a jam",
         "caption": "Live visuals at a Chaos jam — movement meeting the projection."
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/fractal-stories-0.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/fractal-stories-0.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/fractal-stories-0.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 65,
+        "alt": "Fractal Stories — live visuals",
+        "caption": "Fractal Stories"
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/space-oddities-2.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/space-oddities-2.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/space-oddities-2.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 67,
+        "alt": "Space Oddities — live visuals",
+        "caption": "Space Oddities"
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/sukushi-1.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/sukushi-1.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/sukushi-1.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 30,
+        "alt": "Sukushi — live visuals",
+        "caption": "Sukushi"
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/celluloscope-0.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/celluloscope-0.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/celluloscope-0.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 74,
+        "alt": "Celluloscope — live visuals",
+        "caption": "Celluloscope"
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/dream-machine-0.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/dream-machine-0.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/dream-machine-0.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 124,
+        "alt": "Dream Machine — live visuals",
+        "caption": "Dream Machine"
       }
     ],
     "todos": [
@@ -492,7 +562,7 @@ export const PROJECTS: Project[] = [
       "Explain the collective, jam and research formats very shortly (1-2 sentences) and my involment and participation.",
       "I'll also add more photos and media here later on."
     ],
-    "body": "With **Collective Chaos Emblematic e.V.** I join jams regularly to perform visuals\nand bring custom-made tools, devices and scenes to experiment with — and, more\nrecently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, working across disciplines with others in the\ncollective. *(More media — including documentation from recent jams — to follow.)*"
+    "body": "I join jams regularly to perform visuals and bring custom-made tools, devices and\nscenes to experiment with — and, more recently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, working across disciplines with others in the\ncollective."
   },
   {
     "code": "2026_0002",
@@ -504,20 +574,11 @@ export const PROJECTS: Project[] = [
     "ordinal": 5,
     "title": "0xGCG — Grow. Corrupt. Glitch.",
     "subtitle": "Immersive room · Kunstkraftwerk Leipzig",
-    "by": [
-      "0xG"
-    ],
-    "role": "Concept · Three.js · immersive direction",
-    "place": "Kunstkraftwerk, Leipzig",
-    "date": "2026",
+    "by": [],
     "status": "ready",
     "featured": true,
-    "tags": [
-      "Immersive",
-      "Three.js",
-      "Generative",
-      "Projection"
-    ],
+    "wip": "Work in progress — this piece is still in active development; the write-up and media here will change.",
+    "tags": [],
     "links": [
       {
         "label": "0xgcg.0xg.gg",
@@ -557,120 +618,6 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAgCdASoUAAsAPu1iqk2ppaQiMAgBMB2JaQAAeyAA/vDuK+9B6MpzfwrAAA==",
         "alt": "0xGCG title — Grow. Corrupt. Glitch.",
         "caption": "The seed: a matrix rain resolves into the title."
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2026_0002/0xgcg-2-boot.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2026_0002/0xgcg-2-boot.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2026_0002/0xgcg-2-boot.webp"
-          }
-        ],
-        "width": 1600,
-        "height": 900,
-        "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JaQAAOQKQ4nN5c0qAAP7ytUm7Ysgg6xofrmmhuWXUGskvkzzAgbDXhqDgD0ZpfjTAAAAA",
-        "alt": "INIT — the dark machine idles",
-        "caption": "I · INIT — a black attractor with gravity, awaiting input."
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2026_0002/0xgcg-3-grow.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2026_0002/0xgcg-3-grow.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2026_0002/0xgcg-3-grow.webp"
-          }
-        ],
-        "width": 1600,
-        "height": 900,
-        "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACwAwCdASoUAAsAPu1iqU2ppaQiMAgBMB2JaQAAVMCocDVINJZR8AD+8uJgHgSOGuv27SBqv9GKxymYCyWe0d3ViZgefJJZBPegBRErqIkgAAAA",
-        "alt": "GROW — the signal becomes alive",
-        "caption": "II · GROW — particles snap into cells, roots and mycelium."
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2026_0002/0xgcg-4-corrupt.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2026_0002/0xgcg-4-corrupt.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2026_0002/0xgcg-4-corrupt.webp"
-          }
-        ],
-        "width": 1600,
-        "height": 900,
-        "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JaQAAPfTyksV6xtGGAAD+7ET3cDUArJLRyffSq/tpbae2Oc5xEufn5qS2SZvfMx++0pqgPAYH6LQalhapqusRQ2ix3NieXQAAAA==",
-        "alt": "OVERFIT — growth past its substrate",
-        "caption": "IV · OVERFIT — replicators and circuitry overrun the field."
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2026_0002/0xgcg-5-glitch.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2026_0002/0xgcg-5-glitch.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2026_0002/0xgcg-5-glitch.webp"
-          }
-        ],
-        "width": 1600,
-        "height": 900,
-        "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JaQAAW+AUYPYoi6I+vSdAAP7xGTz3fa51SB1xLHKZYQGi3C1IXDb/TPYW3z7vHXK8BL7HDvzw3j8cusDvehq9VLbaViUaIGQ0AyAAAAA=",
-        "alt": "GLITCH — collapse and return to seed",
-        "caption": "V · GLITCH — recognition, datamosh, the loop returns."
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2026_0002/0xgcg-6-layout.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2026_0002/0xgcg-6-layout.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2026_0002/0xgcg-6-layout.webp"
-          }
-        ],
-        "width": 1600,
-        "height": 900,
-        "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAABQAwCdASoUAAsAPu1iqU2ppaOiMAgBMB2JaQAAetHPa7kUgAD+8LdN7OLgfnrlV/uqxCOA4FBfKDTe63MTjgAA",
-        "alt": "The venue blueprint — Maschinenhalle, Kunstkraftwerk",
-        "caption": "Mapped onto the Maschinenhalle's surfaces."
-      },
-      {
-        "kind": "image",
-        "src": "/assets/2026_0002/0xgcg-7-timeline.webp",
-        "sources": [
-          {
-            "type": "image/avif",
-            "src": "/assets/2026_0002/0xgcg-7-timeline.avif"
-          },
-          {
-            "type": "image/webp",
-            "src": "/assets/2026_0002/0xgcg-7-timeline.webp"
-          }
-        ],
-        "width": 1500,
-        "height": 950,
-        "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAACQAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JaQAAVEUEuazHp6FgAP7yuYcK/K9kd5XpSQm0kr3gRRxTtF+6z11RVqPtvRRaQpzkXS1Ju0/ppR9FSad2tcBS7b9keXm+VrYSH1AAAAA=",
-        "alt": "The neuron-graph storyboard",
-        "caption": "The 5-act dramaturgy as a navigable neuron graph."
       }
     ],
     "todos": [
@@ -678,6 +625,6 @@ export const PROJECTS: Project[] = [
       "Get also the information about the project etc from the directory mentioned above. at the end of the day, it'll be hosted at 0xgcg.0xg.gg.",
       "I'll also add more information later on. project directory may also include interested videos."
     ],
-    "body": "**0xGCG — Grow. Corrupt. Glitch.** is a three-minute immersive video loop for the\nprojection hall at **Kunstkraftwerk, Leipzig**, developed through the **Node\nInstitute** *Creative Masterclass: Immersive Room*.\n\nIt is a helical meta-narrative of systems — how they emerge, **grow**, **optimize**,\n**overfit**, and finally **glitch** into the seed of another dimension, then loop.\nAmid the AI boom and its daily dread-and-excitement, I'm co-creating it with my\ndigital twin, **0xG** (a Claude Code instance), as an open discussion that goes\nmeta and questions the question itself — not from a protagonist's view but as the\nwhole system's.\n\nThe concept began as a Three.js explorer, deployed separately at\n**[0xgcg.0xg.gg](https://0xgcg.0xg.gg)** — scan or follow the link to fly through it."
+    "body": "**0xGCG — Grow. Corrupt. Glitch.** is a three-minute immersive video loop for the\nprojection hall at **Kunstkraftwerk, Leipzig**, developed through the **Node\nInstitute** *Creative Masterclass: Immersive Room*."
   }
 ]

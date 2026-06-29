@@ -168,6 +168,13 @@ function DescriptionCard({ p }: { p: Project }) {
         </h2>
       )}
 
+      {p.wip && (
+        <div className={styles.wip}>
+          <span className={styles.wipIcon}>⚠</span>
+          <span>{p.wip}</span>
+        </div>
+      )}
+
       <div className={styles.tags}>
         {p.by.map((b) => (
           <Pill key={b} accent={p.accent} dot>

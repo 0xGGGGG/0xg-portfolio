@@ -60,6 +60,8 @@ export interface Project {
   date?: string
   status: ProjectStatus
   featured?: boolean
+  /** when set, shows a "work in progress" warning banner with this message */
+  wip?: string
   tags: string[]
   links: ProjectLink[]
   /** absolute or hash deep link encoded in the QR */
