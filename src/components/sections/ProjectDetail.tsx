@@ -162,11 +162,22 @@ function DescriptionCard({ p }: { p: Project }) {
       <h1 className={styles.title}>
         <span className={styles.mark}>{p.title}</span>
       </h1>
-      {p.subtitle && (
-        <h2 className={styles.subtitle}>
-          <span className={styles.markDim}>{p.subtitle}</span>
-        </h2>
-      )}
+      {(() => {
+        // instrument-panel header: TYPE | PLACE | TIME (role · place · date)
+        const meta = [p.role, p.place, p.date].filter(Boolean) as string[]
+        return meta.length ? (
+          <h2 className={styles.subtitle}>
+            <span className={styles.markDim}>
+              {meta.map((part, i) => (
+                <span key={i}>
+                  {i > 0 && <span className={styles.sep}>|</span>}
+                  {part}
+                </span>
+              ))}
+            </span>
+          </h2>
+        ) : null
+      })()}
 
       {p.wip && (
         <div className={styles.wip}>
@@ -174,17 +185,6 @@ function DescriptionCard({ p }: { p: Project }) {
           <span>{p.wip}</span>
         </div>
       )}
-
-      <div className={styles.tags}>
-        {p.by.map((b) => (
-          <Pill key={b} accent={p.accent} dot>
-            {b}
-          </Pill>
-        ))}
-        {p.role && <Pill accent={p.accent}>{p.role}</Pill>}
-        {p.place && <Pill accent={p.accent}>{p.place}</Pill>}
-        {p.date && <Pill accent={p.accent}>{p.date}</Pill>}
-      </div>
 
       <div className={styles.body}>
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={mark(styles.mark)}>

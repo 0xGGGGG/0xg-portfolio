@@ -5,7 +5,6 @@
 ## 2025.0001 — Relate — Talk With Me
 - [ ] Fetch the information from website: . save it as md and also assets relative.
 - [ ] Explain the project, that installation and my involvement
-- [ ] No media yet — add files to imports/ (no-media card variant in use).
 
 ## 2025.0002 — TOLSim
 - [ ] Fetch the information from videos, also export a meaningful screenshot image.

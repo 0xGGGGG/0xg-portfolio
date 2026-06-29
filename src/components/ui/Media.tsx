@@ -31,8 +31,18 @@ function ImageMedia({ item }: { item: MediaItem }) {
           />
         </picture>
       </div>
-      {item.caption && <figcaption className={styles.cap}>{item.caption}</figcaption>}
+      <Caption item={item} />
     </figure>
+  )
+}
+
+function Caption({ item }: { item: MediaItem }) {
+  if (!item.caption && !item.credit) return null
+  return (
+    <figcaption className={styles.cap}>
+      {item.caption}
+      {item.credit && <span className={styles.credit}>{item.credit}</span>}
+    </figcaption>
   )
 }
 
@@ -137,7 +147,7 @@ function VideoMedia({ item }: { item: MediaItem }) {
           </div>
         </div>
       </div>
-      {item.caption && <figcaption className={styles.cap}>{item.caption}</figcaption>}
+      <Caption item={item} />
     </figure>
   )
 }

@@ -12,21 +12,21 @@ export const PROJECTS: Project[] = [
     "seq": 1,
     "ordinal": 0,
     "title": "Relate — Talk With Me",
-    "subtitle": "Conversational-AI installation",
     "by": [
       "Andrea Familari"
     ],
-    "role": "Conversational AI · Unreal Engine",
+    "role": "Conversational AI",
     "support": "Integration with NLX.ai bot service as an Unreal Engine Blueprint component",
-    "place": "uzwei, Dortmunder U · Dortmund",
-    "date": "2025",
+    "place": "uzwei, Dortmunder U",
+    "date": "2024–2025",
     "status": "ready",
-    "tags": [
-      "Unreal Engine",
-      "Conversational AI",
-      "Installation"
-    ],
+    "tags": [],
     "links": [
+      {
+        "label": "uzwei · Dortmunder U",
+        "url": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/",
+        "kind": "event"
+      },
       {
         "label": "nlx.ai",
         "url": "https://nlx.ai",
@@ -36,11 +36,91 @@ export const PROJECTS: Project[] = [
     "qrTarget": "https://0xg.gg/#relate",
     "qr": "/assets/2025_0001/qr.svg",
     "accent": "#27e0a0",
-    "media": [],
+    "media": [
+      {
+        "kind": "image",
+        "src": "/assets/2025_0001/relate-1-main.webp",
+        "sources": [
+          {
+            "type": "image/avif",
+            "src": "/assets/2025_0001/relate-1-main.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0001/relate-1-main.webp"
+          }
+        ],
+        "width": 1414,
+        "height": 2000,
+        "placeholder": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4IAoBAABQBgCdASoUABwAPu1ur1KppiQiqAgBMB2JbACdMzLwwCBKPTUYWjHceMBz4UTyCz2w1HqN+vAlr4mMAAD+JqcXQzgJ4MYBcEBtl/sWFoGDJIYEruqQ5ZlsMTx7LWPKLgJ3/ii+OdYzEgSmaboy8EVaKTMBgLmfSCr5892l8VGTSd2N1LTxbIX6dOIOrfOPw5gQTLMdNgtcGKtC0L9RPWFE7s1Sya0HmbQpLdprS0SGnZrvuDt8zbP2/zyuJ9IAONl79MwvB6wnodTrniuqsU+ugPJ0GDIT2+d2ePl4SrLzBi8TylqcQkEZVO/LH4GHLz5cjXbhVHuNZ3YfZ5V8kT1Jr9bK6WNEZkUcAA==",
+        "alt": "The Relate avatar — a 3D head scanned from the artist that visitors talk with",
+        "caption": "A voice-bot avatar, scanned from the artist himself.",
+        "credit": "© Andrea Familari"
+      },
+      {
+        "kind": "image",
+        "src": "/assets/2025_0001/relate-2.webp",
+        "sources": [
+          {
+            "type": "image/avif",
+            "src": "/assets/2025_0001/relate-2.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0001/relate-2.webp"
+          }
+        ],
+        "width": 1500,
+        "height": 2000,
+        "placeholder": "data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAADQBQCdASoUABsAPu1qq1EppaOiqAqpMB2JbAC7M4UCrf/i2HSBcMHf2yx42UUsFemRU6cvpWAuAOj0mXJeu7bJdlnyn85FPsoyx6jApxGlE3oA1ru3PXDxnU64EfZZY6BTIKdZ8JU4yLLufTYlGANcMr+oZbn/7GNDjl3A9eBWubpcm+w6KwkuF1gt4HeH12zrU3THAO1GqCD3+Qmkev3DoGW/cebbjbJUxgpCggvxuGo42Ssc23cdy2SZa33cv+yBkgBF7QzfbvvdJmkN9bOcZJs5y1FWnUUnMzAyeE4Km1TYBQK1x9BFv1cFgTNe2JZNm4PjYTRxfmjVRfkAAA==",
+        "alt": "Visitor in conversation with the Relate installation at uzwei",
+        "caption": "A bench encounter — speaking with the work.",
+        "credit": "© Anna Rumeld"
+      },
+      {
+        "kind": "image",
+        "src": "/assets/2025_0001/relate-3.webp",
+        "sources": [
+          {
+            "type": "image/avif",
+            "src": "/assets/2025_0001/relate-3.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0001/relate-3.webp"
+          }
+        ],
+        "width": 2000,
+        "height": 1333,
+        "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwAwCdASoUAA0APu1iqk4ppaQiMAgBMB2JbACdACFsaZeapkTpwpsAAP7qUVcOgoNFjFB9WLSnSl4dJZB6VNFJWJfeNfwRW8JFXx41PFcQ7ySDk+RSSB6zbr9GcXte3wjsr+dtEfw6Hv7o+uazuRY2eOermk4jy/sMrkEBe9Ddyfo9skcawghFGpxAYMh+EPgS61ooV8AAAA==",
+        "alt": "The Relate installation space at Dortmunder U",
+        "caption": "The installation at uzwei, Dortmunder U.",
+        "credit": "© Anna Rumeld"
+      },
+      {
+        "kind": "image",
+        "src": "/assets/2025_0001/relate-4.webp",
+        "sources": [
+          {
+            "type": "image/avif",
+            "src": "/assets/2025_0001/relate-4.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0001/relate-4.webp"
+          }
+        ],
+        "width": 1500,
+        "height": 2000,
+        "placeholder": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAACQBQCdASoUABsAPu1oqVAppiOiqA1RMB2JZgCdABGN8r5gU3MQr6lq/tCXrPb21/wtgsut2AD+zQcBNBUMO10y6HtQrSi+XhNsoxcESecBJdbQ2NVYEsUkh35Zzy6kM2yPDgQtSrrTYvOaPyVf/U39E0+hmJqPo81So6yiCsam5/8W+1z01j+azFDwpHudwnkYfHk54RXVX6VXz5lq/fgb0uoRHAhx1WyEo4rJLQ29Dx5SQl5xIBXCLZ+DL8fgKtgTwMoqfyCMYWcypGfkXOw5Ya40PdGmWrIAAA==",
+        "alt": "The Relate avatar screen in the gallery",
+        "caption": "The avatar, mid-conversation.",
+        "credit": "© Anna Rumeld"
+      }
+    ],
     "todos": [
       "Fetch the information from website: . save it as md and also assets relative.",
-      "Explain the project, that installation and my involvement",
-      "No media yet — add files to imports/ (no-media card variant in use)."
+      "Explain the project, that installation and my involvement"
     ],
     "body": "*Relate — Talk With Me* is an installation by **Andrea Familari** at **uzwei**\nin the Dortmunder U, Dortmund — a room where visitors speak with the work and\nthe work answers.\n\nI built the voice: an **NLX.ai** conversational agent wired into **Unreal Engine**\nas a reusable Blueprint component, so the runtime could listen, route intent and\nrespond in real time inside the engine driving the piece."
   },
@@ -53,20 +133,14 @@ export const PROJECTS: Project[] = [
     "seq": 2,
     "ordinal": 1,
     "title": "TOLSim",
-    "subtitle": "Kinetic-joint MR builder",
     "by": [
       "Melodi"
     ],
-    "role": "Concept prototype · Unreal Engine XR",
-    "place": "Prototype · Turkey",
+    "role": "MR Prototype",
+    "place": "Turkey",
     "date": "2025",
     "status": "ready",
-    "tags": [
-      "Mixed Reality",
-      "Unreal Engine",
-      "Physics",
-      "Kinetic Architecture"
-    ],
+    "tags": [],
     "links": [],
     "qrTarget": "https://0xg.gg/#tolsim",
     "qr": "/assets/2025_0002/qr.svg",
@@ -135,21 +209,14 @@ export const PROJECTS: Project[] = [
     "seq": 3,
     "ordinal": 2,
     "title": "Synesthesia MR",
-    "subtitle": "Cyberdelic Hackathon · Berlin",
     "by": [
       "Cyberdelic Nexus Society"
     ],
-    "role": "Meta Quest MR app · sensors · GLSL",
+    "role": "MR Hackathon",
     "place": "Berlin",
-    "date": "8–9 Nov 2025",
+    "date": "2025",
     "status": "ready",
-    "tags": [
-      "Mixed Reality",
-      "Meta Quest",
-      "Audio-reactive",
-      "Sensors",
-      "GLSL"
-    ],
+    "tags": [],
     "links": [
       {
         "label": "luma · event",
@@ -304,20 +371,15 @@ export const PROJECTS: Project[] = [
     "seq": 4,
     "ordinal": 3,
     "title": "Nostalgia is the Extended Feedback",
-    "subtitle": "Solo exhibition · SOMA Art Berlin",
     "by": [
       "Joaquina Salgado"
     ],
-    "role": "Trackball + screen · electronics + programming",
+    "role": "Support",
     "support": "Trackball and small screen, aided with electronics and programming.",
     "place": "SOMA Art, Berlin",
     "date": "2025",
     "status": "ready",
-    "tags": [
-      "Installation",
-      "Interactive",
-      "Electronics"
-    ],
+    "tags": [],
     "links": [
       {
         "label": "joaquinasalgado.com/nitef",
@@ -329,6 +391,26 @@ export const PROJECTS: Project[] = [
     "qr": "/assets/2025_0004/qr.svg",
     "accent": "#a2c267",
     "media": [
+      {
+        "kind": "image",
+        "src": "/assets/2025_0004/nitef-intro.webp",
+        "sources": [
+          {
+            "type": "image/avif",
+            "src": "/assets/2025_0004/nitef-intro.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0004/nitef-intro.webp"
+          }
+        ],
+        "width": 2000,
+        "height": 1336,
+        "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQAwCdASoUAA0APu1iqU2ppaOiMAgBMB2JYkwARhYgAgFyfcgAAP7wQMtENpw8noQ/tLv6yz3ezyg7wzoi7rU/ewb+uSV+DvXQRgHUCS8Bk1XeaiyLpAX8iG8nHvwCsucMOopJqeWywoHgAAA=",
+        "alt": "Nostalgia is the Extended Feedback — exhibition image by Joaquina Salgado",
+        "caption": "Nostalgia is the Extended Feedback — SOMA Art, Berlin.",
+        "credit": "© Joaquina Salgado · joaquinasalgado.com/nitef"
+      },
       {
         "kind": "image",
         "src": "/assets/2025_0004/img-0119.webp",
@@ -425,7 +507,7 @@ export const PROJECTS: Project[] = [
       "Explain the project, that solo exhibition (SOMA Art Berlin) and my involvement",
       "I'll also add more photos here later on."
     ],
-    "body": "*Nostalgia is the Extended Feedback* is a solo exhibition by **Joaquina Salgado**\nat **SOMA Art, Berlin** — a dim brick hall of inflatable forms, glowing pedestals\nand a small screen showing aquatic feedback imagery you steer by hand.\n\nMy support was the interactive layer: a **trackball and small screen**, aided with\n**electronics and programming**, so visitors could move through the feedback\nworld of the piece."
+    "body": "*Nostalgia is the Extended Feedback* is a solo exhibition by **Joaquina Salgado**\nat **SOMA Art, Berlin** (2025).\n\nMy support: **electronics, programming, setup** — a **Raspberry Pi Zero 2**\ndriving the screens that play the animation loops, and a **Raspberry Pi Pico**\nfor the trackball."
   },
   {
     "code": "2026_0001",
@@ -436,18 +518,20 @@ export const PROJECTS: Project[] = [
     "seq": 1,
     "ordinal": 4,
     "title": "Chaos Jam & Research",
-    "subtitle": "Collective Chaos Emblematic e.V.",
     "by": [],
+    "role": "Live Visuals",
+    "place": "Berlin",
+    "date": "Ongoing",
     "status": "ready",
     "tags": [],
     "links": [
       {
-        "url": "https://www.instagram.com/p/DY5RrX9irhg",
-        "label": "instagram.com",
+        "label": "@chaosemblematic · post",
+        "url": "https://www.instagram.com/p/DVdold8CrQw/",
         "kind": "social"
       },
       {
-        "url": "https://www.instagram.com/p/DVdold8CrQw/",
+        "url": "https://www.instagram.com/p/DY5RrX9irhg",
         "label": "instagram.com",
         "kind": "social"
       }
@@ -474,6 +558,39 @@ export const PROJECTS: Project[] = [
         "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABQBACdASoUAA8APu1iqU2ppaQiMAgBMB2JbACdH8GJtgKVNuf/8PfS+qAQAP3vLsz535T03gTLjJmp+x76Nf3Qts2o5Lr9rRKuuAbXQc170b4OieSQknhodLpR+mTyvsLFnDqdwsBdrgLWYCSui8QyPkAeOKnIGPkPH2nEZPddnIJV7qmZinqlstvI24pEgxb8C4aAAAA=",
         "alt": "Performers before a large psychedelic-glitch projection at a jam",
         "caption": "Live visuals at a Chaos jam — movement meeting the projection."
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/ig-dvdold8crqw.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/ig-dvdold8crqw.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/ig-dvdold8crqw.jpg",
+        "width": 720,
+        "height": 1280,
+        "duration": 55,
+        "alt": "Live-visuals clip shared by Collective Chaos Emblematic",
+        "caption": "A jam set, shared by the collective.",
+        "credit": "via @chaosemblematic"
+      },
+      {
+        "kind": "video",
+        "src": "/assets/2026_0001/dream-machine-0.mp4",
+        "sources": [
+          {
+            "type": "video/mp4",
+            "src": "/assets/2026_0001/dream-machine-0.mp4"
+          }
+        ],
+        "poster": "/assets/2026_0001/dream-machine-0.jpg",
+        "width": 1280,
+        "height": 720,
+        "duration": 124,
+        "alt": "Dream Machine — live visuals",
+        "caption": "Dream Machine"
       },
       {
         "kind": "video",
@@ -538,22 +655,6 @@ export const PROJECTS: Project[] = [
         "duration": 74,
         "alt": "Celluloscope — live visuals",
         "caption": "Celluloscope"
-      },
-      {
-        "kind": "video",
-        "src": "/assets/2026_0001/dream-machine-0.mp4",
-        "sources": [
-          {
-            "type": "video/mp4",
-            "src": "/assets/2026_0001/dream-machine-0.mp4"
-          }
-        ],
-        "poster": "/assets/2026_0001/dream-machine-0.jpg",
-        "width": 1280,
-        "height": 720,
-        "duration": 124,
-        "alt": "Dream Machine — live visuals",
-        "caption": "Dream Machine"
       }
     ],
     "todos": [
@@ -562,7 +663,7 @@ export const PROJECTS: Project[] = [
       "Explain the collective, jam and research formats very shortly (1-2 sentences) and my involment and participation.",
       "I'll also add more photos and media here later on."
     ],
-    "body": "I join jams regularly to perform visuals and bring custom-made tools, devices and\nscenes to experiment with — and, more recently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, working across disciplines with others in the\ncollective."
+    "body": "I join jams regularly to perform visuals and bring custom-made tools, devices and\nscenes to experiment with — and, more recently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, working across disciplines with others in the\ncollective.\n\nWith gratitude to the **Collective Chaos Emblematic e.V.** crew — one set\n[shared here](https://www.instagram.com/p/DVdold8CrQw/) by the collective."
   },
   {
     "code": "2026_0002",
@@ -573,8 +674,10 @@ export const PROJECTS: Project[] = [
     "seq": 2,
     "ordinal": 5,
     "title": "0xGCG — Grow. Corrupt. Glitch.",
-    "subtitle": "Immersive room · Kunstkraftwerk Leipzig",
     "by": [],
+    "role": "Immersive Room",
+    "place": "Kunstkraftwerk, Leipzig",
+    "date": "2026",
     "status": "ready",
     "featured": true,
     "wip": "Work in progress — this piece is still in active development; the write-up and media here will change.",

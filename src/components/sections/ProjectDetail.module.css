@@ -246,6 +246,11 @@
   line-height: 1.9;
   margin-bottom: 16px;
 }
+/* dim pipe between the TYPE | PLACE | TIME segments */
+.sep {
+  margin: 0 0.5em;
+  opacity: 0.4;
+}
 .tags {
   display: flex;
   flex-wrap: wrap;
