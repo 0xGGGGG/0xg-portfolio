@@ -52,8 +52,9 @@ export default function OrbitController() {
   }, [])
 
   return (
-    <div className={styles.pad} style={{ ['--c' as string]: accent }} data-stop-nav>
-      <Key dir="up" cls={styles.up} onClick={() => step(-1)} label="previous work" lit={pressed === 'up'} />
+    <div className={styles.dock}>
+      <div className={styles.pad} style={{ ['--c' as string]: accent }} data-stop-nav>
+        <Key dir="up" cls={styles.up} onClick={() => step(-1)} label="previous work" lit={pressed === 'up'} />
       <Key
         dir="left"
         cls={styles.left}
@@ -70,7 +71,8 @@ export default function OrbitController() {
         label="next card"
         lit={pressed === 'right'}
       />
-      <Key dir="down" cls={styles.down} onClick={() => step(1)} label="next work" lit={pressed === 'down'} />
+        <Key dir="down" cls={styles.down} onClick={() => step(1)} label="next work" lit={pressed === 'down'} />
+      </div>
     </div>
   )
 }

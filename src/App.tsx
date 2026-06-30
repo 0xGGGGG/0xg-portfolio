@@ -2,7 +2,6 @@ import SceneCanvas from './components/scene/SceneCanvas'
 import Topbar from './components/ui/Topbar'
 import ProjectDetail from './components/sections/ProjectDetail'
 import OrbitController from './components/ui/OrbitController'
-import ViewportDebug from './components/ui/ViewportDebug'
 import { useNav } from './lib/scroll/store'
 import { useNavInput, useLayoutWatch } from './lib/scroll/useNavInput'
 import { useRouter } from './lib/scroll/useRouter'
@@ -23,15 +22,17 @@ export default function App() {
       : NEUTRAL_ACCENT
 
   return (
-    <div className={styles.app} style={{ ['--c' as string]: accent }}>
-      <div className={styles.tint} />
-      <div className={styles.canvas}>
-        <SceneCanvas />
+    <>
+      <div className={styles.app} style={{ ['--c' as string]: accent }}>
+        <div className={styles.tint} />
+        <div className={styles.canvas}>
+          <SceneCanvas />
+        </div>
+        <Topbar />
+        <ProjectDetail />
       </div>
-      <Topbar />
-      <ViewportDebug />
+      {/* outside .app so the 100svh dock isn't clipped by .app's overflow:hidden */}
       <OrbitController />
-      <ProjectDetail />
-    </div>
+    </>
   )
 }

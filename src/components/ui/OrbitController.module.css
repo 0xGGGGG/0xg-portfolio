@@ -1,15 +1,28 @@
-.pad {
+/* full-height dock anchored to 100svh — its bottom edge lands just above iOS
+   Safari's address bar (position:fixed; bottom:0 instead stops at the shorter
+   714px layout viewport, leaving an unused band). Lives OUTSIDE .app so it isn't
+   clipped by .app's overflow:hidden. */
+.dock {
   position: fixed;
-  left: 50%;
-  /* hug the bottom of the VISIBLE viewport (above iOS Safari's address bar).
-     --chrome-bottom is the measured bottom browser-chrome height (0 on desktop). */
-  bottom: calc(var(--chrome-bottom, 0px) + 12px);
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
   z-index: 7;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+  pointer-events: none;
+}
+.pad {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 54px);
   grid-template-rows: repeat(3, 54px);
   gap: 0;
+  pointer-events: auto;
   user-select: none;
   -webkit-user-select: none;
 }
