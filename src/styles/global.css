@@ -31,6 +31,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Mobile: touch should only navigate — never select text or pop the long-press
+   callout (headers, markers, captions all became selectable on tap otherwise).
+   Desktop keeps everything selectable for copy. */
+@media (max-width: 759px) {
+  html {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
+
 #root {
   position: relative;
   min-height: 100dvh;
