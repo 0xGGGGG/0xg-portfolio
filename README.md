@@ -100,7 +100,7 @@ app itself is domain-agnostic (URLs come from `location`).
 
 TBD IC: To be Defined. It's complicated.
 
-**DO NOT USE IT FOR ANYTHING SERIOUS. JUST FOR EDUCATIONAL PURPOSES.**
+**DO NOT USE IT FOR ANYTHING SERIOUS. JUST FOR EDUCATIONAL PURPOSES. WE DON'T CARRY ANY LIABILITY.**
 
 ---
 
