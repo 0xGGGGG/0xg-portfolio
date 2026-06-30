@@ -7,25 +7,30 @@
   display: grid;
   grid-template-columns: repeat(3, 54px);
   grid-template-rows: repeat(3, 54px);
-  gap: 4px;
+  gap: 0;
   user-select: none;
   -webkit-user-select: none;
 }
+/* pull each key halfway toward the centre so they close around it (no centre gap) */
 .up {
   grid-column: 2;
   grid-row: 1;
+  transform: translateY(50%);
 }
 .left {
   grid-column: 1;
   grid-row: 2;
+  transform: translateX(50%);
 }
 .right {
   grid-column: 3;
   grid-row: 2;
+  transform: translateX(-50%);
 }
 .down {
   grid-column: 2;
   grid-row: 3;
+  transform: translateY(-50%);
 }
 
 .key {
@@ -39,13 +44,13 @@
   color: var(--c);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: transform 0.08s ease;
 }
 .cap {
   display: block;
   width: 100%;
   height: 100%;
   overflow: visible;
+  transition: transform 0.08s ease;
 }
 /* the keycap boundary — a glowing wireframe outline */
 .box {
@@ -77,8 +82,8 @@
   opacity: 1;
   filter: drop-shadow(0 0 11px var(--c));
 }
-.key:active:not(:disabled) {
-  transform: scale(0.9);
+.key:active:not(:disabled) .cap {
+  transform: scale(0.88);
 }
 .key:disabled {
   cursor: default;
