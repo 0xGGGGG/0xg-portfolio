@@ -139,7 +139,7 @@ export default function ProjectDetail() {
               key={m.src}
               style={{ ['--ar' as string]: ar }}
             >
-              <div className={`${styles.mediaCard} ${wip ? styles.wipMedia : ''}`} data-stop-nav>
+              <div className={`${styles.mediaCard} ${wip ? styles.wipMedia : ''}`}>
                 {wip && <WipBand />}
                 <Media item={m} />
               </div>

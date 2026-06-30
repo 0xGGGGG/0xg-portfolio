@@ -21,9 +21,10 @@ export function useNavInput() {
     const fire = (dir: number) => useNav.getState().step(dir)
 
     const onWheel = (e: WheelEvent) => {
+      if (document.fullscreenElement) return // a fullscreen video owns the gesture
       // horizontal-dominant -> let the carousel scroll natively
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return
-      if (overMedia(e.target)) return // over a video/image: leave it alone
+      if (overMedia(e.target)) return // over the controller pad: leave it alone
       // vertical -> step the project. NOTE: listener is passive (no preventDefault)
       // so the browser can scroll the carousel on the compositor thread without
       // blocking our WebGL render loop. The app shell is fixed/overflow-hidden, so
@@ -55,6 +56,7 @@ export function useNavInput() {
     let moved = false
     let startedOverMedia = false
     const onDown = (e: PointerEvent) => {
+      if (document.fullscreenElement) return // a fullscreen video owns the gesture
       // mouse drags are for selecting text / interacting — never navigate.
       // touch/pen swipes navigate (desktop uses wheel + arrows + clicks).
       if (e.pointerType === 'mouse') return
