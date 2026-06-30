@@ -3,6 +3,13 @@
 .labelWrap {
   transition: transform 0.25s var(--ease-out);
 }
+/* mobile: hide the in-scene 2025.0001 RELATE markers — the top-right pill shows
+   the current code.card coordinate instead (less clutter on a small screen) */
+@media (max-width: 759px) {
+  .labelWrap {
+    display: none;
+  }
+}
 .side_r {
   transform: translateX(calc(-50% + 16px));
 }

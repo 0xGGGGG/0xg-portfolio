@@ -81,11 +81,27 @@
   flex: none;
 }
 
+/* mobile-only URL-like code (e.g. 2026.0001.3); desktop keeps pos + title + icon */
+.url {
+  display: none;
+  color: var(--c);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 12px var(--c);
+}
+
 @media (max-width: 759px) {
-  .name {
-    display: none;
-  }
+  .name,
+  .pos,
+  .icon,
   .idle {
     display: none;
+  }
+  .url {
+    display: inline;
+  }
+  .now {
+    padding: 6px 14px;
   }
 }

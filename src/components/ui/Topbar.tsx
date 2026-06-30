@@ -8,6 +8,7 @@ export default function Topbar() {
   const open = useNav((s) => s.open)
   const close = useNav((s) => s.close)
   const count = useNav((s) => s.count)
+  const card = useNav((s) => s.card)
   const p = PROJECTS[active]
   // latest-first position (newest = 01)
   const pos = count - active
@@ -28,6 +29,10 @@ export default function Topbar() {
         >
           <span className={styles.pos}>
             {String(pos).padStart(2, '0')}/{String(count).padStart(2, '0')}
+          </span>
+          {/* mobile-only: a URL-like coordinate (code.card) in place of the markers */}
+          <span className={styles.url}>
+            {p.displayCode}.{card}
           </span>
           <span className={styles.name}>{p.title}</span>
           <span className={styles.icon}>
