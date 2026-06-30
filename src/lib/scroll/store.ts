@@ -1,5 +1,7 @@
 import { create } from 'zustand'
-import { COUNT, mod } from '@/lib/content/manifest'
+import { COUNT, mod, PROJECTS } from '@/lib/content/manifest'
+
+const cardCountOf = (i: number) => 1 + PROJECTS[i].media.length + (PROJECTS[i].wip ? 0 : 1)
 
 export type Layout = 'aside-left' | 'aside-top'
 
@@ -23,6 +25,7 @@ interface NavState {
   hovered: string | null
 
   step: (dir: number) => void
+  stepCard: (dir: number) => void
   select: (projectIndex: number) => void
   close: () => void
   setOpen: (open: boolean) => void
@@ -57,6 +60,14 @@ export const useNav = create<NavState>((set) => ({
         if (s.active < NEWEST) return { active: s.active + 1, card: 0, dir: -1 }
         return { open: false, dir: -1 } // newest -> index
       }
+    }),
+
+  // page the open project's cards, clamped to its bounds (no wrap)
+  stepCard: (d) =>
+    set((s) => {
+      if (!s.open) return {}
+      const count = cardCountOf(mod(s.active))
+      return { card: Math.max(0, Math.min(count - 1, s.card + d)) }
     }),
 
   select: (projectIndex) =>

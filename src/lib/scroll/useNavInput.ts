@@ -40,9 +40,13 @@ export function useNavInput() {
     }
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') fire(1)
-      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') fire(-1)
-      else if (e.key === 'Escape') useNav.getState().close()
+      const st = useNav.getState()
+      // vertical arrows step the project; horizontal arrows page the cards
+      if (e.key === 'ArrowDown') st.step(1)
+      else if (e.key === 'ArrowUp') st.step(-1)
+      else if (e.key === 'ArrowRight') st.stepCard(1)
+      else if (e.key === 'ArrowLeft') st.stepCard(-1)
+      else if (e.key === 'Escape') st.close()
     }
 
     let dragging = false

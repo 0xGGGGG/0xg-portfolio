@@ -1,81 +1,90 @@
-.wrap {
+.pad {
   position: fixed;
   left: 50%;
-  bottom: 18px;
+  bottom: 24px;
   transform: translateX(-50%);
   z-index: 7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, 52px);
+  grid-template-rows: repeat(3, 48px);
+  gap: 7px;
   user-select: none;
   -webkit-user-select: none;
 }
-.btn {
-  width: 30px;
-  height: 26px;
+.up {
+  grid-column: 2;
+  grid-row: 1;
+}
+.left {
+  grid-column: 1;
+  grid-row: 2;
+}
+.right {
+  grid-column: 3;
+  grid-row: 2;
+}
+.down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* a glossy 3D-printed keycap: lit top edge, dished interior, a solid "skirt"
+   below the cap for height, a drop shadow under it, and an accent glow */
+.key {
+  position: relative;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(180deg, #3a414e 0%, #232834 46%, #11141c 100%);
+  color: #eaeff6;
+  font-size: 17px;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(10, 12, 18, 0.5);
-  backdrop-filter: blur(6px);
-  color: var(--ink);
-  font-size: 9px;
-  line-height: 1;
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s, box-shadow 0.15s, opacity 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow:
+    0 1px 0 1px rgba(0, 0, 0, 0.55),
+    0 8px 0 -2px #0a0c11,
+    0 10px 16px rgba(0, 0, 0, 0.6),
+    0 0 16px -6px var(--c),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -4px 7px rgba(0, 0, 0, 0.55);
+  transition: transform 0.07s ease, box-shadow 0.16s, color 0.16s, background 0.2s;
 }
-.btn:hover:not(:disabled) {
-  border-color: var(--c);
+/* glossy sheen on the top half of the cap */
+.key::before {
+  content: '';
+  position: absolute;
+  inset: 3px 3px 44% 3px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.key:hover:not(:disabled) {
   color: #fff;
-  box-shadow: 0 0 14px -3px var(--c);
+  background: linear-gradient(180deg, #434b59 0%, #272d3b 46%, #13161f 100%);
+  box-shadow:
+    0 1px 0 1px rgba(0, 0, 0, 0.55),
+    0 8px 0 -2px #0a0c11,
+    0 10px 18px rgba(0, 0, 0, 0.6),
+    0 0 30px -2px var(--c),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    inset 0 -4px 7px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 0 14px var(--c);
 }
-.btn:disabled {
-  opacity: 0.22;
+/* press: the cap travels down onto its skirt */
+.key:active:not(:disabled) {
+  transform: translateY(6px);
+  box-shadow:
+    0 1px 0 1px rgba(0, 0, 0, 0.55),
+    0 2px 0 -2px #0a0c11,
+    0 3px 7px rgba(0, 0, 0, 0.5),
+    0 0 22px -4px var(--c),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.5);
+}
+.key:disabled {
+  opacity: 0.3;
   cursor: default;
-}
-.mid {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.orbit {
-  display: block;
-}
-.ring {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.12);
-  stroke-width: 1;
-}
-.dot {
-  fill: rgba(255, 255, 255, 0.32);
-  transition: fill 0.2s;
-}
-.dotOn {
-  fill: var(--c);
-  filter: drop-shadow(0 0 4px var(--c));
-}
-.cards {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  height: 7px;
-  margin-top: 1px;
-}
-.cardDot,
-.cardOn {
-  width: 5px;
-  height: 5px;
-  border-radius: 99px;
-  transition: background 0.2s, transform 0.2s;
-}
-.cardDot {
-  background: rgba(255, 255, 255, 0.26);
-}
-.cardOn {
-  background: var(--c);
-  box-shadow: 0 0 6px var(--c);
-  transform: scale(1.2);
 }
