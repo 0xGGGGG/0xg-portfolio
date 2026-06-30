@@ -2,6 +2,7 @@ import SceneCanvas from './components/scene/SceneCanvas'
 import Topbar from './components/ui/Topbar'
 import ProjectDetail from './components/sections/ProjectDetail'
 import OrbitController from './components/ui/OrbitController'
+import ViewportDebug from './components/ui/ViewportDebug'
 import { useNav } from './lib/scroll/store'
 import { useNavInput, useLayoutWatch } from './lib/scroll/useNavInput'
 import { useRouter } from './lib/scroll/useRouter'
@@ -28,6 +29,7 @@ export default function App() {
         <SceneCanvas />
       </div>
       <Topbar />
+      <ViewportDebug />
       <OrbitController />
       <ProjectDetail />
     </div>
