@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
       }
     ],
     "qrTarget": "https://0xg.gg/relate",
-    "qr": "/assets/2025_0001/qr.svg",
+    "qr": "/assets/2025_0001/qr.svg?v=ac2e4e6b",
     "accent": "#27e0a0",
     "media": [
       {
@@ -154,7 +154,7 @@ export const PROJECTS: Project[] = [
     "tags": [],
     "links": [],
     "qrTarget": "https://0xg.gg/tolsim",
-    "qr": "/assets/2025_0002/qr.svg",
+    "qr": "/assets/2025_0002/qr.svg?v=ea3fd815",
     "accent": "#4fe37e",
     "media": [
       {
@@ -244,7 +244,7 @@ export const PROJECTS: Project[] = [
       }
     ],
     "qrTarget": "https://0xg.gg/altered",
-    "qr": "/assets/2025_0003/qr.svg",
+    "qr": "/assets/2025_0003/qr.svg?v=8ef56398",
     "accent": "#77e65c",
     "media": [
       {
@@ -420,7 +420,7 @@ export const PROJECTS: Project[] = [
       }
     ],
     "qrTarget": "https://0xg.gg/nitef",
-    "qr": "/assets/2025_0004/qr.svg",
+    "qr": "/assets/2025_0004/qr.svg?v=72c3cf9c",
     "accent": "#a2c267",
     "media": [
       {
@@ -601,7 +601,7 @@ export const PROJECTS: Project[] = [
       }
     ],
     "qrTarget": "https://0xg.gg/chaos",
-    "qr": "/assets/2026_0001/qr.svg",
+    "qr": "/assets/2026_0001/qr.svg?v=50163141",
     "accent": "#d1779e",
     "media": [
       {
@@ -777,7 +777,7 @@ export const PROJECTS: Project[] = [
       }
     ],
     "qrTarget": "https://0xg.gg/0xgcg",
-    "qr": "/assets/2026_0002/qr.svg",
+    "qr": "/assets/2026_0002/qr.svg?v=011db3d8",
     "accent": "#ff2bd6",
     "media": [
       {

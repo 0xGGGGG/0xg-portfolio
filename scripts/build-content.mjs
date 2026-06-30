@@ -4,6 +4,7 @@
 // Usage: node scripts/build-content.mjs [--force] [--scaffold]
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { createHash } from 'node:crypto'
 import matter from 'gray-matter'
 import QRCode from 'qrcode'
 import {
@@ -57,9 +58,11 @@ async function genQr(target, outDir, code) {
     margin: 1,
     color: { dark: '#0b0b0b', light: '#e8e8e8' },
   })
-  const rel = `/assets/${code}/qr.svg`
   await fs.writeFile(path.join(outDir, 'qr.svg'), svg)
-  return rel
+  // qr.svg keeps a fixed name but its contents change with the target — append a
+  // content version so the long /assets cache can't serve a stale code
+  const v = createHash('md5').update(target).digest('hex').slice(0, 8)
+  return `/assets/${code}/qr.svg?v=${v}`
 }
 
 async function buildMedia(proj, importsDir, outDir) {
