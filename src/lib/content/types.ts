@@ -31,6 +31,14 @@ export interface MediaItem {
   duration?: number
 }
 
+/** the /whoami about page (content/whoami/index.mdx) */
+export interface About {
+  title: string
+  lead: string
+  /** markdown body — `## heading` per section, paragraphs under each */
+  body: string
+}
+
 export type LinkKind =
   | 'site'
   | 'event'

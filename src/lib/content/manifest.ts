@@ -1,8 +1,8 @@
 import { PROJECTS } from './manifest.generated'
 import type { Project } from './types'
 
-export type { Project, MediaItem, ProjectLink, MediaSource } from './types'
-export { PROJECTS }
+export type { Project, MediaItem, ProjectLink, MediaSource, About } from './types'
+export { PROJECTS, ABOUT } from './manifest.generated'
 
 export const COUNT = PROJECTS.length
 
