@@ -466,6 +466,26 @@ export const PROJECTS: Project[] = [
         "caption": "A small screen nested in a glowing inflatable base; a trackball in hand."
       },
       {
+        "kind": "image",
+        "src": "/assets/2025_0004/03-trackball-with-screen-full-panel.webp",
+        "sources": [
+          {
+            "type": "image/avif",
+            "src": "/assets/2025_0004/03-trackball-with-screen-full-panel.avif"
+          },
+          {
+            "type": "image/webp",
+            "src": "/assets/2025_0004/03-trackball-with-screen-full-panel.webp"
+          }
+        ],
+        "width": 1068,
+        "height": 1600,
+        "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQBACdASoUAB4APu1iqE2ppaOiMAgBMB2JYwCxH3JDTqcgmzdIips4riKlsnsVwAD+6TqSE8nZkA+ot7N92kNbi6uWrHtUJFiAk1UwzJHaCWEHHShcDRTjI94ovI6hH/BE/94KfgzSea+qqq1ZqtAAAAA=",
+        "hqSrc": "/assets/2025_0004/03-trackball-with-screen-full-panel.hq.webp",
+        "alt": "The trackball-driven screen set into the translucent fish sculpture",
+        "caption": "The trackball + screen I built, nested in the sculpture's base."
+      },
+      {
         "kind": "video",
         "src": "/assets/2025_0004/img-0117.mp4",
         "sources": [
@@ -551,8 +571,8 @@ export const PROJECTS: Project[] = [
   {
     "code": "2026_0001",
     "displayCode": "2026.0001",
-    "slug": "research",
-    "dir": "2026_0001_research_jam_chaos",
+    "slug": "chaos",
+    "dir": "2026_0001_chaos_jam_and_research",
     "year": 2026,
     "seq": 1,
     "ordinal": 4,
@@ -580,7 +600,7 @@ export const PROJECTS: Project[] = [
         "kind": "social"
       }
     ],
-    "qrTarget": "https://0xg.gg/#research",
+    "qrTarget": "https://0xg.gg/#chaos",
     "qr": "/assets/2026_0001/qr.svg",
     "accent": "#d1779e",
     "media": [
@@ -715,7 +735,7 @@ export const PROJECTS: Project[] = [
       "Explain the collective, jam and research formats very shortly (1-2 sentences) and my involment and participation.",
       "I'll also add more photos and media here later on."
     ],
-    "body": "I'm an active member of Chaos Emblematic e.V. joining jams regularly\nto perform visuals and bring custom-made tools, devices and scenes\nto experiment with — and, more recently, to research.\n\nI'm drawn to **spatial computing** and the live feedback loop between\n**movement ⟷ sound ⟷ visuals**, at the same time working across disciplines with others in the\ncollective."
+    "body": "I'm an active member of Chaos Emblematic e.V. doing these things:\n\n- joining jams regularly to perform visuals and bring custom-made tools,\n  devices and scenes to experiment with — and, more recently, to research.\n- research **spatial computing**, **human computer interaction** as means of\n  live feedback loops between **movement ⟷ sound ⟷ visuals**, to facilitate\n  co-creation of organic moments."
   },
   {
     "code": "2026_0002",

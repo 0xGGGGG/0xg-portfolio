@@ -66,7 +66,8 @@ export function useNavInput() {
       const dy = e.clientY - sy
       if (Math.hypot(dx, dy) > 48) {
         moved = true
-        if (Math.abs(dy) > Math.abs(dx)) fire(dy > 0 ? 1 : -1) // vertical drag = project
+        // natural touch: swipe UP = go forward (next/older), swipe DOWN = back
+        if (Math.abs(dy) > Math.abs(dx)) fire(dy > 0 ? -1 : 1) // vertical drag = project
         // horizontal drag is left to the carousel (touch pan-x)
       }
     }

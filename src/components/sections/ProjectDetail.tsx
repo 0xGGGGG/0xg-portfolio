@@ -25,9 +25,13 @@ export default function ProjectDetail() {
   useEffect(() => {
     const justOpened = open && !prevOpen.current
     prevOpen.current = open
-    if (active === shown) return
-    if (!open || justOpened) {
-      setShown(active) // snap when closed or opening directly to a project
+    if (active === shown || !open || justOpened) {
+      // snap (no crossfade) when nothing changed, when closed, or when opening
+      // straight to a project — and ALWAYS clear `fading`, so the cards can never
+      // get stuck at opacity:0 if a prior transition was interrupted (e.g. the
+      // project was closed mid-fade, which used to leave `fading` true forever).
+      setShown(active)
+      setFading(false)
       return
     }
     setFading(true)
@@ -57,15 +61,34 @@ export default function ProjectDetail() {
     )
   }
   useEffect(() => {
-    if (track.current) track.current.scrollTo({ left: 0 })
     recompute()
+    // jump to the active card — 0 for normal nav, but >0 honours a /slug/N deep link
+    const el = track.current
+    if (!el) return
+    const c = el.children[useNav.getState().card] as HTMLElement | undefined
+    el.scrollTo({ left: c ? c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2 : 0 })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shown])
   useEffect(() => {
     window.addEventListener('resize', recompute)
     return () => window.removeEventListener('resize', recompute)
   }, [])
 
-  // rAF-throttled + layout-free: nearest cached centre to the scroll centre
+  // nearest cached card centre to a scroll position
+  const nearest = (center: number) => {
+    let best = 0
+    let bestD = Infinity
+    for (let i = 0; i < centers.current.length; i++) {
+      const d = Math.abs(centers.current[i] - center)
+      if (d < bestD) {
+        bestD = d
+        best = i
+      }
+    }
+    return best
+  }
+
+  // rAF-throttled + layout-free: scroll position -> active card
   const rafId = useRef(0)
   const onScroll = () => {
     if (rafId.current) return
@@ -73,17 +96,7 @@ export default function ProjectDetail() {
       rafId.current = 0
       const el = track.current
       if (!el || !centers.current.length) return
-      const center = el.scrollLeft + clientW.current / 2
-      let best = 0
-      let bestD = Infinity
-      for (let i = 0; i < centers.current.length; i++) {
-        const d = Math.abs(centers.current[i] - center)
-        if (d < bestD) {
-          bestD = d
-          best = i
-        }
-      }
-      setCard(best)
+      setCard(nearest(el.scrollLeft + clientW.current / 2))
     })
   }
 
@@ -94,6 +107,14 @@ export default function ProjectDetail() {
     const c = el.children[i] as HTMLElement | undefined
     if (c) el.scrollTo({ left: c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' })
   }
+
+  // external card change (orbit controller / deep-link) -> scroll the track to it
+  useEffect(() => {
+    const el = track.current
+    if (!el || !centers.current.length) return
+    if (nearest(el.scrollLeft + clientW.current / 2) !== card) goto(card)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [card])
 
   return (
     <>
@@ -131,18 +152,6 @@ export default function ProjectDetail() {
             <CtaCard p={p} />
           </article>
         )}
-      </div>
-
-      <div className={`${styles.carouselNav} ${open ? styles.open : ''}`} data-stop-nav>
-        <button onClick={() => goto(card - 1)} disabled={card <= 0} aria-label="previous card">
-          ‹
-        </button>
-        <span className={styles.cardCount}>
-          {String(card + 1).padStart(2, '0')} / {String(cardCount).padStart(2, '0')}
-        </span>
-        <button onClick={() => goto(card + 1)} disabled={card >= cardCount - 1} aria-label="next card">
-          ›
-        </button>
       </div>
     </>
   )

@@ -53,8 +53,8 @@ export const ICONS: Record<string, IconGlyph> = {
       [0, 4], [6, 8],
     ],
   },
-  // research — a moving figure (live visuals / movement)
-  research: {
+  // chaos — a moving figure (live visuals / movement)
+  chaos: {
     points: [
       [50, 22], [38, 38], [62, 38], [30, 24], [70, 26],
       [45, 60], [55, 60], [34, 80], [66, 80],
