@@ -2,6 +2,8 @@ import SceneCanvas from './components/scene/SceneCanvas'
 import Topbar from './components/ui/Topbar'
 import ProjectDetail from './components/sections/ProjectDetail'
 import OrbitController from './components/ui/OrbitController'
+import WhoamiNode from './components/ui/WhoamiNode'
+import AboutPanel from './components/ui/AboutPanel'
 import { useNav } from './lib/scroll/store'
 import { useNavInput, useLayoutWatch } from './lib/scroll/useNavInput'
 import { useRouter } from './lib/scroll/useRouter'
@@ -29,10 +31,12 @@ export default function App() {
           <SceneCanvas />
         </div>
         <Topbar />
+        <WhoamiNode />
         <ProjectDetail />
       </div>
       {/* outside .app so the 100svh dock isn't clipped by .app's overflow:hidden */}
       <OrbitController />
+      <AboutPanel />
     </>
   )
 }

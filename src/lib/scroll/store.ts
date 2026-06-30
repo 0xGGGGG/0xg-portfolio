@@ -16,6 +16,8 @@ interface NavState {
   count: number
   active: number
   open: boolean
+  /** the /whoami about overlay */
+  about: boolean
   layout: Layout
   reducedMotion: boolean
   card: number
@@ -27,6 +29,7 @@ interface NavState {
   step: (dir: number) => void
   stepCard: (dir: number) => void
   select: (projectIndex: number) => void
+  openAbout: () => void
   close: () => void
   setOpen: (open: boolean) => void
   setLayout: (layout: Layout) => void
@@ -39,6 +42,7 @@ export const useNav = create<NavState>((set) => ({
   count: COUNT,
   active: NEWEST, // ring is oriented to the newest even at the index
   open: false,
+  about: false,
   layout: 'aside-left',
   reducedMotion: false,
   card: 0,
@@ -78,7 +82,8 @@ export const useNav = create<NavState>((set) => ({
       dir: projectIndex <= s.active ? 1 : -1,
     })),
 
-  close: () => set({ open: false }),
+  openAbout: () => set({ about: true, open: false }),
+  close: () => set({ open: false, about: false }),
   setOpen: (open) => set({ open }),
   setLayout: (layout) => set({ layout }),
   setReducedMotion: (v) => set({ reducedMotion: v }),

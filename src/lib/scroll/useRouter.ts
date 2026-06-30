@@ -4,10 +4,11 @@ import { PROJECTS, mod, indexOfSlug } from '@/lib/content/manifest'
 
 // Path-based deep links with history:
 //   /                -> index (closed)
+//   /whoami          -> the about overlay
 //   /<slug>          -> project open, card 0 (description)
 //   /<slug>/<n>      -> project open, card n (0 = description); out of bounds -> 0
-// Project changes push a history entry (back/forward steps between projects);
-// card changes replace (no history flood) but keep the URL shareable.
+// Project/about changes push a history entry (back/forward); card changes replace
+// (no history flood) but keep the URL shareable.
 
 const cardCountOf = (i: number) => 1 + PROJECTS[i].media.length + (PROJECTS[i].wip ? 0 : 1)
 
@@ -18,6 +19,7 @@ export function useRouter() {
       const segs = location.pathname.split('/').filter(Boolean)
       const st = useNav.getState()
       if (!segs.length) return st.close()
+      if (segs[0] === 'whoami') return st.openAbout()
       const i = indexOfSlug(decodeURIComponent(segs[0]))
       if (i < 0) return st.close()
       st.select(i)
@@ -31,25 +33,29 @@ export function useRouter() {
 
   // store -> URL
   const open = useNav((s) => s.open)
+  const about = useNav((s) => s.about)
   const active = useNav((s) => mod(s.active))
   const card = useNav((s) => s.card)
-  const prevSlug = useRef<string | null>(null)
+  const prevKey = useRef<string | null>(null)
   const first = useRef(true)
   useEffect(() => {
-    const slug = open ? PROJECTS[active].slug : null
-    // on first run the URL is authoritative (the apply effect above resolves it);
-    // don't let the initial closed state stomp a deep link to "/"
+    const key = about ? 'whoami' : open ? PROJECTS[active].slug : null
+    // on first run the URL is authoritative (the apply effect above resolves it)
     if (first.current) {
       first.current = false
-      prevSlug.current = slug
+      prevKey.current = key
       return
     }
-    const url = slug ? `/${slug}${card > 0 ? `/${card}` : ''}` : '/'
+    const url = about
+      ? '/whoami'
+      : open
+        ? `/${PROJECTS[active].slug}${card > 0 ? `/${card}` : ''}`
+        : '/'
     if (url !== location.pathname) {
-      // a different project (or open/close) earns a history entry; a card move replaces
-      if (slug !== prevSlug.current) history.pushState(null, '', url)
+      // a different project/about (or open/close) earns a history entry; a card move replaces
+      if (key !== prevKey.current) history.pushState(null, '', url)
       else history.replaceState(null, '', url)
     }
-    prevSlug.current = slug
-  }, [open, active, card])
+    prevKey.current = key
+  }, [open, about, active, card])
 }
