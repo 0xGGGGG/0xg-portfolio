@@ -1,7 +1,9 @@
 .pad {
   position: fixed;
   left: 50%;
-  bottom: 22px;
+  /* hug the bottom of the VISIBLE viewport (above iOS Safari's address bar).
+     --chrome-bottom is the measured bottom browser-chrome height (0 on desktop). */
+  bottom: calc(var(--chrome-bottom, 0px) + 12px);
   transform: translateX(-50%);
   z-index: 7;
   display: grid;

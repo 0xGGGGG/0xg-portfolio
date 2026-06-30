@@ -106,9 +106,24 @@ export function useLayoutWatch() {
     apply()
     mqAside.addEventListener('change', apply)
     mqMotion.addEventListener('change', apply)
+
+    // Track the bottom browser chrome (iOS Safari's address bar sits over the
+    // layout viewport, so `position:fixed; bottom` floats above an unused band).
+    // Expose its height as --chrome-bottom so bottom controls can hug the bar.
+    const vv = window.visualViewport
+    const setChrome = () => {
+      const gap = vv ? Math.max(0, window.innerHeight - vv.height - vv.offsetTop) : 0
+      document.documentElement.style.setProperty('--chrome-bottom', `${gap}px`)
+    }
+    setChrome()
+    vv?.addEventListener('resize', setChrome)
+    vv?.addEventListener('scroll', setChrome)
+
     return () => {
       mqAside.removeEventListener('change', apply)
       mqMotion.removeEventListener('change', apply)
+      vv?.removeEventListener('resize', setChrome)
+      vv?.removeEventListener('scroll', setChrome)
     }
   }, [])
 }

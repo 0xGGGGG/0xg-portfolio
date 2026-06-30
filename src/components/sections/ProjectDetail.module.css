@@ -251,7 +251,7 @@
     padding-left: 14px;
     padding-right: 24vw;
     scroll-padding-left: 14px;
-    padding-bottom: 68px;
+    padding-bottom: calc(var(--chrome-bottom, 0px) + 68px);
     gap: 12px;
   }
   /* iOS Safari only touch-scrolls a container that itself receives pointer
