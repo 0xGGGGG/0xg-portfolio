@@ -4,11 +4,7 @@
 Support: Trackball and small screen, aided with electronics and programming.
 Place: SOMA Art Berlin
 
-### TODOs:
-
-- [ ] Fetch the information from website: https://joaquinasalgado.com/nitef. save it as md and also assets relative.
-- [ ] Explain the project, that solo exhibition (SOMA Art Berlin) and my involvement
-- [ ] I'll also add more photos here later on.
+_Authoring complete — info, media, and prose are in index.mdx. (More photos optional, later.)_
 
 Our ultimate aim is to make a parsable format+media for a project in our portfolio site.
 

@@ -6,12 +6,9 @@ We've just kick started to Research as well. I'm interested in spatial computing
 
 
 
-### TODOs:
-
-- [ ] Fetch the information from relevant pages. chaos emblematic side has the general info
-- [ ] Download images and videos from instagram posts: https://www.instagram.com/p/DY5RrX9irhg, and https://www.instagram.com/p/DVdold8CrQw/ timestamp them mark/prefix them with YYYYMMDDDD_ig_<instagram_id>_... Keep the reference of the post somewhere, we'll show that as alt later.  
-- [ ] Explain the collective, jam and research formats very shortly (1-2 sentences) and my involment and participation.
-- [ ] I'll also add more photos and media here later on.
+_Authoring complete — info, media, and prose are in index.mdx. One open item: the
+2nd Instagram clip (DY5RrX9irhg) still needs downloading (login cookies); the first
+(DVdold8CrQw) is already in. Tracked in the top-level TODOs.md._
 
 Our ultimate aim is to make a parsable format+media for a project for portfolio site.
 

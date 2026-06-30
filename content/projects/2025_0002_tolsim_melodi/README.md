@@ -10,9 +10,7 @@ Unreal Engine is used for XR App develoopment.
 These has been prototyped to apply for a government grant in Turkey.
 
 
-### TODOs:
-
-- [ ] Fetch the information from videos, also export a meaningful screenshot image.
+_Authoring complete — info, media, and prose are in index.mdx._
 
 Our ultimate aim is to make a parsable format+media for a project in our portfolio site.
 

@@ -11,11 +11,7 @@ But idea can be expanded to any kind of sensor (EEG, pressure/heart rate).
 I've also later experimented a bit of touching walls and other places and being able to show custom portals that show some of glsl shaders I was curating.
 
 
-### TODOs:
-
-- [ ] Fetch the information from event page. save it as md and also assets relative.
-- [ ] Explain the hackhathon then my application.
-- [ ] I'll also add more photos here later on.
+_Authoring complete — info, media, and prose are in index.mdx. (More photos optional, later.)_
 
 Our ultimate aim is to make a parsable format+media for a project in our portfolio site.
 

@@ -131,10 +131,7 @@ export const PROJECTS: Project[] = [
         "creditUrl": "https://aufderuzwei.de/event/relate-talk-with-me-andrea-familari/"
       }
     ],
-    "todos": [
-      "Fetch the information from website: . save it as md and also assets relative.",
-      "Explain the project, that installation and my involvement"
-    ],
+    "todos": [],
     "body": "_Relate — Talk With Me_ is an installation by **Andrea Familari** at **uzwei**\nin the Dortmunder U, Dortmund — a room where visitors speak with the work and\nthe work answers.\n\nDeveloped integration with NLX.ai service between UnrealEngine. Delivered as Blueprint component."
   },
   {
@@ -209,9 +206,7 @@ export const PROJECTS: Project[] = [
         "caption": "A longer build, testing the system's range of forms."
       }
     ],
-    "todos": [
-      "Fetch the information from videos, also export a meaningful screenshot image."
-    ],
+    "todos": [],
     "body": "**TOLSim** is a small physics + mixed-reality builder prototype, made to\nexperiment with a custom **kinetic joint system**.\nThere is one type of joint and one type of stick; from\nthose two primitives you assemble different geometric forms in passthrough MR.\n\nUsed UnrealEngine and its MetaXR Plugins. Some amount of C++ for some procedural\nvariant generation, then mostly blueprints."
   },
   {
@@ -377,11 +372,7 @@ export const PROJECTS: Project[] = [
         "alt": "Hackathon, Berlin"
       }
     ],
-    "todos": [
-      "Fetch the information from event page. save it as md and also assets relative.",
-      "Explain the hackhathon then my application.",
-      "I'll also add more photos here later on."
-    ],
+    "todos": [],
     "body": "For the **Cyberdelic Hackathon** (Berlin, 8–9 Nov 2025), I built a **Meta Quest**\nmixed-reality app that alters your vision from real-time sensor data.\n\nHere the signal came from a **microphone** (audio-reactive) and from **touching\nfruits and vegetables** (a biotron sensor) — but the idea generalizes to any\nsensor: EEG, pressure, heart rate.\n\nI later experimented with touching walls and surfaces to open custom **portals**\nrendering GLSL shaders."
   },
   {
@@ -561,11 +552,7 @@ export const PROJECTS: Project[] = [
         "alt": "The piece in the SOMA Art space"
       }
     ],
-    "todos": [
-      "Fetch the information from website: https://joaquinasalgado.com/nitef. save it as md and also assets relative.",
-      "Explain the project, that solo exhibition (SOMA Art Berlin) and my involvement",
-      "I'll also add more photos here later on."
-    ],
+    "todos": [],
     "body": "_Nostalgia is the Extended Feedback_ is a game and solo exhibition by **Joaquina Salgado**\nat **SOMA Art, Berlin** (2025).\n\nI did **electronics, programming, setup** — a **Raspberry Pi Zero 2**\ndriving the screens that play the animation loops, and a **Raspberry Pi Pico**\nfor the trackball."
   },
   {
@@ -592,11 +579,6 @@ export const PROJECTS: Project[] = [
       {
         "label": "@chaosemblematic · post",
         "url": "https://www.instagram.com/p/DVdold8CrQw/",
-        "kind": "social"
-      },
-      {
-        "url": "https://www.instagram.com/p/DY5RrX9irhg",
-        "label": "instagram.com",
         "kind": "social"
       }
     ],
@@ -729,12 +711,7 @@ export const PROJECTS: Project[] = [
         "caption": "Celluloscope"
       }
     ],
-    "todos": [
-      "Fetch the information from relevant pages. chaos emblematic side has the general info",
-      "Download images and videos from instagram posts: https://www.instagram.com/p/DY5RrX9irhg, and https://www.instagram.com/p/DVdold8CrQw/ timestamp them mark/prefix them with YYYYMMDDDD_ig_<instagram_id>_... Keep the reference of the post somewhere, we'll show that as alt later.",
-      "Explain the collective, jam and research formats very shortly (1-2 sentences) and my involment and participation.",
-      "I'll also add more photos and media here later on."
-    ],
+    "todos": [],
     "body": "I'm an active member of Chaos Emblematic e.V. doing these things:\n\n- joining jams regularly to perform visuals and bring custom-made tools,\n  devices and scenes to experiment with — and, more recently, to research.\n- research **spatial computing**, **human computer interaction** as means of\n  live feedback loops between **movement ⟷ sound ⟷ visuals**, to facilitate\n  co-creation of organic moments."
   },
   {
@@ -801,11 +778,7 @@ export const PROJECTS: Project[] = [
         "caption": "The seed: a matrix rain resolves into the title."
       }
     ],
-    "todos": [
-      "Fetch the information from course pages and about the place too from Kunstkraftwerk's website.",
-      "Get also the information about the project etc from the directory mentioned above. at the end of the day, it'll be hosted at 0xgcg.0xg.gg.",
-      "I'll also add more information later on. project directory may also include interested videos."
-    ],
+    "todos": [],
     "body": "**0xGCG — Grow. Corrupt. Glitch.** It's a vibe.\nprojection hall at **Kunstkraftwerk, Leipzig**, being developed alongside with the **Node\nInstitute** _Creative Masterclass: Immersive Room_."
   }
 ]

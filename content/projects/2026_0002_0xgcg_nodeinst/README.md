@@ -14,11 +14,7 @@ With the recent AI boom and its prescribed daily dread & excitement shots, I'm c
 
 Concept and related work (started as a THREE.js site, will be deployed too) is at /Users/gungorkocak/Projects/0xG/0xG/training/nodeinstitute_immersive_rooms/0xGCG for now.
 
-### TODOs:
-
-- [ ] Fetch the information from course pages and about the place too from Kunstkraftwerk's website.
-- [ ] Get also the information about the project etc from the directory mentioned above. at the end of the day, it'll be hosted at 0xgcg.0xg.gg.
-- [ ] I'll also add more information later on. project directory may also include interested videos.
+_Authoring complete — info, media, and prose are in index.mdx. (WIP piece; the write-up + media keep evolving.)_
 
 Our ultimate aim is to make a parsable format+media for a project in our portfolio site.
 
