@@ -1,6 +1,6 @@
 # 0xG Portfolio — TODOs
 
-**Status: shipped + live** at https://0xg-portfolio.fly.dev/ (repo:
+**Status: shipped + live** at https://0xg.gg (repo:
 github.com/0xGGGGG/0xg-portfolio). Build phases 0–5 are done and all six projects
 are authored with media. This file now tracks what's *left*.
 
@@ -37,6 +37,8 @@ run and deploy.
 - [x] **About** — `/whoami` overlay, authored as `content/whoami/index.mdx`, with
   a standalone index node.
 - [x] **GitHub** — pushed to `0xGGGGG/0xg-portfolio` (public) + README.
+- [x] **Domain** — live at **https://0xg.gg** (apex; `www` optional). `SITE_URL`
+  sets the QR origin.
 
 ### Content (all six projects authored + media)
 - [x] **relate** — Andrea Familari / uzwei · Dortmunder U; 4 credited photos.
@@ -50,7 +52,7 @@ run and deploy.
 
 ## Remaining / Next
 
-### SEO & meta (the rest of Phase 4)
+### SEO & meta — _parked for now (per 0xG)_
 - [ ] OG image + `og:`/`twitter:` tags; JSON-LD; `sitemap.xml`; `robots.txt`; a real favicon.
 - [ ] Lighthouse / CLS pass _(reduced-motion is already in `global.css`)_.
 
@@ -60,9 +62,8 @@ run and deploy.
 - [ ] Optional: more photos/clips per project over time; keep refining the
   **0xGCG** write-up + media (still WIP).
 
-### Domain & infra
-- [ ] Point **0xg.gg** at fly (apex A/AAAA + `www` CNAME → `0xg-portfolio.fly.dev`);
-  wait out `.gg` delegation. App is domain-agnostic; set `SITE_URL` for the QR origin.
+### Infra
+- [ ] Optional: `www.0xg.gg` CNAME → `0xg-portfolio.fly.dev` (the apex is already live).
 - [ ] If assets get heavy, reconsider a **Tigris** volume vs baking into the image.
 
 ### Nice-to-have

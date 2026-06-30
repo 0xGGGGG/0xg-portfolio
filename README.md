@@ -7,7 +7,7 @@ order. Selecting one slides the ring aside and opens that project's horizontal
 card carousel (description → media → CTA + QR). The index is **projects +
 navigation only** — the work is the content.
 
-🔗 **Live:** https://0xg-portfolio.fly.dev/ (domain `0xg.gg` deferred)
+🔗 **Live:** https://0xg.gg (also https://0xg-portfolio.fly.dev/)
 
 ---
 
