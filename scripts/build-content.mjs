@@ -139,7 +139,7 @@ async function main() {
     const media = mergeMedia(await buildMedia(proj, importsDir, outDir), fm.media)
 
     const accent = accentForOrdinal(proj.ordinal, n)
-    const qrTarget = fm.qrTarget || `${SITE}/#${proj.slug}`
+    const qrTarget = fm.qrTarget || `${SITE}/${proj.slug}`
     const qr = await genQr(qrTarget, outDir, proj.code)
 
     // auto-detected gaps -> todos

@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
         "kind": "site"
       }
     ],
-    "qrTarget": "https://0xg.gg/#relate",
+    "qrTarget": "https://0xg.gg/relate",
     "qr": "/assets/2025_0001/qr.svg",
     "accent": "#27e0a0",
     "media": [
@@ -153,7 +153,7 @@ export const PROJECTS: Project[] = [
     "status": "ready",
     "tags": [],
     "links": [],
-    "qrTarget": "https://0xg.gg/#tolsim",
+    "qrTarget": "https://0xg.gg/tolsim",
     "qr": "/assets/2025_0002/qr.svg",
     "accent": "#4fe37e",
     "media": [
@@ -243,7 +243,7 @@ export const PROJECTS: Project[] = [
         "kind": "event"
       }
     ],
-    "qrTarget": "https://0xg.gg/#altered",
+    "qrTarget": "https://0xg.gg/altered",
     "qr": "/assets/2025_0003/qr.svg",
     "accent": "#77e65c",
     "media": [
@@ -419,7 +419,7 @@ export const PROJECTS: Project[] = [
         "kind": "site"
       }
     ],
-    "qrTarget": "https://0xg.gg/#nitef",
+    "qrTarget": "https://0xg.gg/nitef",
     "qr": "/assets/2025_0004/qr.svg",
     "accent": "#a2c267",
     "media": [
@@ -600,7 +600,7 @@ export const PROJECTS: Project[] = [
         "kind": "social"
       }
     ],
-    "qrTarget": "https://0xg.gg/#chaos",
+    "qrTarget": "https://0xg.gg/chaos",
     "qr": "/assets/2026_0001/qr.svg",
     "accent": "#d1779e",
     "media": [
@@ -776,7 +776,7 @@ export const PROJECTS: Project[] = [
         "kind": "site"
       }
     ],
-    "qrTarget": "https://0xg.gg/#0xgcg",
+    "qrTarget": "https://0xg.gg/0xgcg",
     "qr": "/assets/2026_0002/qr.svg",
     "accent": "#ff2bd6",
     "media": [
