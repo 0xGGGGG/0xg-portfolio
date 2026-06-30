@@ -15,22 +15,22 @@
 .up {
   grid-column: 2;
   grid-row: 1;
-  transform: translateY(50%);
+  transform: translateY(38%);
 }
 .left {
   grid-column: 1;
   grid-row: 2;
-  transform: translateX(50%);
+  transform: translateX(38%);
 }
 .right {
   grid-column: 3;
   grid-row: 2;
-  transform: translateX(-50%);
+  transform: translateX(-38%);
 }
 .down {
   grid-column: 2;
   grid-row: 3;
-  transform: translateY(-50%);
+  transform: translateY(-38%);
 }
 
 .key {
@@ -71,19 +71,33 @@
   filter: drop-shadow(0 0 5px var(--c));
   transition: opacity 0.16s, filter 0.16s;
 }
-.key:hover:not(:disabled) .box,
-.key:active:not(:disabled) .box {
+.key:hover:not(:disabled) .box {
   opacity: 1;
   stroke-width: 1.8;
   filter: drop-shadow(0 0 10px var(--c));
 }
-.key:hover:not(:disabled) .arrow,
-.key:active:not(:disabled) .arrow {
+.key:hover:not(:disabled) .arrow {
   opacity: 1;
   filter: drop-shadow(0 0 11px var(--c));
 }
+/* pressed (keyboard) or active (click/tap): flash bright white + strong glow */
+.key.pressed:not(:disabled) .box,
+.key:active:not(:disabled) .box {
+  opacity: 1;
+  stroke: #fff;
+  stroke-width: 2;
+  fill: rgba(255, 255, 255, 0.09);
+  filter: drop-shadow(0 0 18px var(--c));
+}
+.key.pressed:not(:disabled) .arrow,
+.key:active:not(:disabled) .arrow {
+  opacity: 1;
+  stroke: #fff;
+  filter: drop-shadow(0 0 16px var(--c));
+}
+.key.pressed:not(:disabled) .cap,
 .key:active:not(:disabled) .cap {
-  transform: scale(0.88);
+  transform: scale(0.86);
 }
 .key:disabled {
   cursor: default;
