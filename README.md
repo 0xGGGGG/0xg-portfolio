@@ -100,6 +100,8 @@ app itself is domain-agnostic (URLs come from `location`).
 
 TBD IC: To be Defined. It's complited.
 
+**DO NOT USE IT FOR ANYTHING SERIOUS. JUST FOR EDUCATIONAL PURPOSES.**
+
 ---
 
 Built with [Claude Code](https://claude.com/claude-code).
