@@ -98,7 +98,7 @@ app itself is domain-agnostic (URLs come from `location`).
 
 ## License
 
-TBD IC: To be Defined. It's complited.
+TBD IC: To be Defined. It's complicated.
 
 **DO NOT USE IT FOR ANYTHING SERIOUS. JUST FOR EDUCATIONAL PURPOSES.**
 
