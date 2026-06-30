@@ -96,6 +96,10 @@ app itself is domain-agnostic (URLs come from `location`).
 > Git and the deploy are independent: pushing to GitHub does not deploy, and
 > `fly deploy` builds from the local working directory.
 
+## License
+
+TBD IC: To be Defined. It's complited.
+
 ---
 
 Built with [Claude Code](https://claude.com/claude-code).
