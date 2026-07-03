@@ -4,7 +4,7 @@ import { Html } from '@react-three/drei'
 import type { Group } from 'three'
 import { PROJECTS, COUNT, mod, projectBySlug } from '@/lib/content/manifest'
 import { useNav } from '@/lib/scroll/store'
-import { ringPosition, rotationForActive, damp, TAU } from '@/lib/geometry/ring'
+import { ringPosition, rotationForActive, damp, ringDist, TAU } from '@/lib/geometry/ring'
 import {
   RADIUS, OPEN_SCALE, CLOSED_SCALE,
   MOBILE_BASE, LAMBDA_ROT, LAMBDA_MOVE, LAMBDA_RETURN, ASIDE_LEFT_FRAC, ASIDE_TOP_FRAC,
@@ -12,12 +12,6 @@ import {
 import CircleCore from './CircleCore'
 import Diamond from './Diamond'
 import styles from './CenterLogo.module.css'
-
-/** circular step-distance between two ring indices (0..n/2) */
-function ringDist(a: number, b: number, n = COUNT) {
-  const d = Math.abs(mod(a, n) - mod(b, n))
-  return Math.min(d, n - d)
-}
 
 function CenterLogo() {
   const open = useNav((s) => s.open)
@@ -102,7 +96,7 @@ export default function Constellation() {
             project={p}
             position={ringPosition(i, COUNT, RADIUS)}
             active={open && i === activeMod}
-            dim={open && ringDist(i, activeMod) > 1}
+            dim={open && ringDist(i, activeMod, COUNT) > 1}
             onSelect={() => select(i)}
           />
         ))}

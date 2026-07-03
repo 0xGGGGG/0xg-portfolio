@@ -7,17 +7,17 @@ import { useNav } from '@/lib/scroll/store'
 
 // Real free low-poly models, rendered as clean wireframe edges. The active /
 // hovered project's model is shown; at the index (no hover) NO model is shown.
-const MODEL_URL = (slug: string) => `/assets/models/${slug}.glb`
+export const MODEL_URL = (slug: string) => `/assets/models/${slug}.glb`
 
 PROJECTS.forEach((p) => useGLTF.preload(MODEL_URL(p.slug)))
 
 // per-model base orientation (radians) so each faces the camera nicely
-const ROT: Record<string, [number, number, number]> = {
+export const ROT: Record<string, [number, number, number]> = {
   tolsim: [0.2, 2.4, 0.15], // wrench: turn toward camera (tunable)
 }
 
 /** merge a glTF scene's meshes into one EdgesGeometry, centered + scaled to fit. */
-function buildEdges(scene: THREE.Object3D, fit = 3.4): THREE.BufferGeometry {
+export function buildEdges(scene: THREE.Object3D, fit = 3.4): THREE.BufferGeometry {
   scene.updateMatrixWorld(true)
   const positions: number[] = []
   scene.traverse((o) => {

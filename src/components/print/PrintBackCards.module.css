@@ -1,0 +1,37 @@
+.wrap {
+  position: absolute;
+  right: 56px;
+  bottom: 210px;
+  width: 880px;
+  height: 480px;
+  perspective: 1400px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width/height/padding/transform/opacity are set inline per-card (each
+     pose has its own size — smaller and fainter with distance) */
+  border-left: 2px solid var(--c);
+  border-radius: var(--radius);
+  /* flat, no blur — backdrop-filter/blurred shadows rasterize as solid
+     ghost blocks in Chrome's real print pipeline (see Diamond/CenterLogo). */
+  background: rgba(8, 11, 18, 0.7);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c);
+  margin-bottom: 10px;
+}
+
+.title {
+  line-height: 1.25;
+}

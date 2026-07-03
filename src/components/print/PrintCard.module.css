@@ -1,0 +1,108 @@
+.card {
+  width: 100%;
+  padding: 42px 48px 38px;
+  color: var(--ink);
+  background: var(--panel-bg);
+  border-left: 2px solid var(--c);
+  border-radius: var(--radius);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+@media print {
+  /* backdrop-filter blur compositing doesn't survive Chrome's print
+     pipeline cleanly (it leaves a ghost rectangle) — fall back to a more
+     opaque flat panel, which also reads better as a still image anyway. */
+  .card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: linear-gradient(180deg, rgba(6, 9, 15, 0.94), rgba(6, 9, 15, 0.9));
+    /* a large-blur box-shadow hits the same Chrome print-rasterization bug
+       (solid block instead of a soft shadow) — drop it for print. */
+    box-shadow: none;
+  }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+.title {
+  margin: 12px 0 6px;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+.meta {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.sep {
+  margin: 0 8px;
+  color: var(--faint);
+}
+.by {
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--dim);
+}
+
+.mid {
+  display: flex;
+  gap: 24px;
+  margin-top: 20px;
+  /* bounded regardless of body length — a long project description must
+     never push the links/QR footer below the fixed page height. 250px was
+     too tight and clipped mid-sentence for longer bodies (e.g. "altered");
+     the card is bottom-anchored with ~700px of headroom above it before it
+     would ever reach the header, so 380px comfortably fits every current
+     project's full body with room to spare. */
+  max-height: 380px;
+  overflow: hidden;
+}
+.excerpt {
+  flex: 1.3;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.excerpt :global(p) {
+  margin-bottom: 0.8em;
+}
+.excerpt :global(strong) {
+  color: #fff;
+}
+.excerpt :global(a) {
+  color: var(--c);
+  text-decoration: underline;
+}
+.hero {
+  flex: 1;
+  min-width: 0;
+}
+.hero picture,
+.hero img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--hairline);
+}

@@ -17,9 +17,14 @@ interface Props {
   active: boolean
   dim?: boolean
   onSelect: () => void
+  /** the dashed selection ring (drei's fat-line) can render as a giant solid
+   *  quad if its resolution uniform desyncs during a forced/resized render —
+   *  the print page's one-shot print snapshot hits exactly that. Default true
+   *  (the interactive site is unaffected; it never forces an off-cycle render). */
+  reticle?: boolean
 }
 
-export default function Diamond({ project, position, active, dim, onSelect }: Props) {
+export default function Diamond({ project, position, active, dim, onSelect, reticle = true }: Props) {
   const outer = useRef<Group>(null)
   const wrap = useRef<Group>(null)
   const ring = useRef<Group>(null)
@@ -79,7 +84,7 @@ export default function Diamond({ project, position, active, dim, onSelect }: Pr
       </group>
 
       {/* selection reticle — thin dashed ring, dashes orbit + slow 3D rotation */}
-      {active && (
+      {active && reticle && (
         <group ref={ring}>
           <Line
             points={ringPoints}

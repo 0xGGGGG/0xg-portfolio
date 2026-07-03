@@ -29,3 +29,8 @@ content/projects/**/imports/
 
 # throwaway dev iteration screenshots (reference captures are kept)
 __resources__/portfolio-dev/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/

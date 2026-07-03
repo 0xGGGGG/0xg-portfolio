@@ -28,3 +28,9 @@ export function rotationForActive(active: number, n: number, layout: Layout): nu
 export function damp(current: number, target: number, lambda: number, dt: number): number {
   return current + (target - current) * (1 - Math.exp(-lambda * dt))
 }
+
+/** circular step-distance between two ring indices (0..n/2) */
+export function ringDist(a: number, b: number, n: number): number {
+  const d = Math.abs(((a % n) + n) % n - ((b % n) + n) % n)
+  return Math.min(d, n - d)
+}

@@ -53,3 +53,13 @@
 .nameShow {
   opacity: 1;
 }
+
+@media print {
+  /* a large-blur text-shadow can rasterize as a solid filled block instead
+     of a soft glow in Chrome's real print/PDF pipeline (doesn't reproduce in
+     a plain print-media screenshot — only in an actual exported PDF). */
+  .l1,
+  .name {
+    text-shadow: none;
+  }
+}

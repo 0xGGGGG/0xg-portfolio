@@ -11,7 +11,8 @@
     "content": "node scripts/build-content.mjs",
     "content:force": "node scripts/build-content.mjs --force",
     "models": "node scripts/sync-models.mjs",
-    "fetch-models": "node scripts/fetch-models.mjs"
+    "fetch-models": "node scripts/fetch-models.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@react-three/drei": "^9.114.0",
@@ -26,6 +27,7 @@
     "zustand": "^5.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@types/node": "^22.7.0",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
