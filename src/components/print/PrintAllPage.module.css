@@ -1,19 +1,12 @@
-/* /print/all — an A4-flow document, unlike the fixed 16:9 flyer. The sheet is
-   A4-wide (794px = 210mm @ 96dpi) and flows naturally; the browser paginates
-   at print time. Keep this CSS and PrintPage.module.css from loading together
-   — both declare @page, and @page is global (main.tsx lazy-loads one or the
-   other for exactly this reason). */
+/* /print/all — explicit A4 sheets (794px = 210mm @ 96dpi), one per printed
+   page; each sheet paints its whole page itself (color + starfield edge to
+   edge), so no area is ever left to the browser canvas, which renders a
+   subtly different black and no stars. Keep this CSS and PrintPage.module.css
+   from loading together — both declare @page, and @page is global (main.tsx
+   lazy-loads one or the other for exactly this reason). */
 @page {
   size: A4 portrait;
-  /* top margin repeats on every page — without it, page 2+ content starts at
-     the raw paper edge (the sheet's own padding only exists at the top of the
-     flow). The root's black canvas background still paints under the margin
-     area, so there are no white bands. */
-  margin: 8mm 0;
-}
-/* page 1 already gets its top spacing from the sheet's padding — no extra */
-@page :first {
-  margin-top: 0;
+  margin: 0;
 }
 
 .stage {
@@ -40,6 +33,9 @@
   background-repeat: repeat;
   /* screen-only hint of the paper edge; dropped at print */
   outline: 1px solid rgba(180, 180, 180, 0.14);
+}
+.sheet + .sheet {
+  margin-top: 28px;
 }
 
 .head {
@@ -305,10 +301,21 @@
   }
   .sheet {
     width: 210mm;
+    /* exactly one page each: full A4 height, the sheet's own background
+       covers the entire paper, content that would ever overflow is cut
+       rather than spilling a stray element onto an extra page */
+    height: 297mm;
+    overflow: hidden;
     margin: 0;
-    /* page 1's top spacing (page 2+ get theirs from the @page margin) */
-    padding: 10mm 12mm 2mm;
+    padding: 10mm 12mm;
     outline: none;
+    break-after: page;
+  }
+  .sheet + .sheet {
+    margin-top: 0;
+  }
+  .sheet:last-child {
+    break-after: auto;
   }
   /* large-blur text-shadow rasterizes as a solid block in Chrome's real
      print/PDF pipeline instead of a soft glow — same bug as the flyer. */

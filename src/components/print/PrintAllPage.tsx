@@ -108,9 +108,14 @@ function ProjectRow({ project, flip }: { project: Project; flip: boolean }) {
 
 /** the /print/all CV/portfolio document: a condensed whoami up top, then every
  *  project (newest first) as a compact row — short summary + one square image +
- *  QR — alternating text/media sides. Flows as a normal document sized to A4
- *  width; the browser paginates it into 1–2 A4 pages at print time (rows never
- *  split across a break). */
+ *  QR — alternating text/media sides. Each A4 page is an EXPLICIT sheet box
+ *  (3 project rows per sheet; the first also carries the whoami, the last the
+ *  footer): at print time every sheet is exactly one page and paints the full
+ *  paper itself (background + starfield edge to edge) — relying on @page
+ *  margins instead leaves bands painted by the browser canvas, which renders
+ *  a subtly different black and no stars. */
+const ROWS_PER_SHEET = 3
+
 export default function PrintAllPage() {
   useEffect(() => {
     document.title = '0xG — works — print'
@@ -118,61 +123,73 @@ export default function PrintAllPage() {
 
   const today = new Date().toISOString().slice(0, 10)
 
+  const sheets: Project[][] = []
+  for (let i = 0; i < BY_DATE_DESC.length; i += ROWS_PER_SHEET)
+    sheets.push(BY_DATE_DESC.slice(i, i + ROWS_PER_SHEET))
+
   return (
     <div className={styles.stage}>
-      <div className={styles.sheet}>
-        <header className={styles.head}>
-          <a className={styles.brand} href={PORTFOLIO_URL}>
-            <span>0xG</span>
-            <span className={styles.brandTag}>works</span>
-          </a>
-          <span className={styles.headMeta}>print * portfolio</span>
-          <span className={styles.headRight}>
-            <span>{today}</span>
-            <span>*</span>
-            <a className={styles.headLink} href={PORTFOLIO_URL}>
-              {PORTFOLIO_URL.replace(/^https?:\/\//, '')}
-            </a>
-          </span>
-        </header>
+      {sheets.map((chunk, s) => (
+        <div key={s} className={styles.sheet}>
+          {s === 0 && (
+            <>
+              <header className={styles.head}>
+                <a className={styles.brand} href={PORTFOLIO_URL}>
+                  <span>0xG</span>
+                  <span className={styles.brandTag}>works</span>
+                </a>
+                <span className={styles.headMeta}>print * portfolio</span>
+                <span className={styles.headRight}>
+                  <span>{today}</span>
+                  <span>*</span>
+                  <a className={styles.headLink} href={PORTFOLIO_URL}>
+                    {PORTFOLIO_URL.replace(/^https?:\/\//, '')}
+                  </a>
+                </span>
+              </header>
 
-        <section className={styles.about} style={{ ['--c' as string]: NEUTRAL_ACCENT }}>
-          <div className={styles.aboutHead}>
-            <div className={styles.aboutIntro}>
-              <div className={styles.eyebrow}>
-                <span>whoami</span>
-              </div>
-              <h1 className={styles.aboutLead}>{BIO_LEAD}</h1>
-            </div>
-            <div className={styles.reach}>
-              <img
-                className={styles.reachQr}
-                src="/assets/whoami-qr.svg"
-                alt="QR code linking to the artist statement"
-              />
-              <a className={styles.reachUrl} href={WHOAMI_URL}>
-                {WHOAMI_URL.replace(/^https?:\/\//, '')}
+              <section className={styles.about} style={{ ['--c' as string]: NEUTRAL_ACCENT }}>
+                <div className={styles.aboutHead}>
+                  <div className={styles.aboutIntro}>
+                    <div className={styles.eyebrow}>
+                      <span>whoami</span>
+                    </div>
+                    <h1 className={styles.aboutLead}>{BIO_LEAD}</h1>
+                  </div>
+                  <div className={styles.reach}>
+                    <img
+                      className={styles.reachQr}
+                      src="/assets/whoami-qr.svg"
+                      alt="QR code linking to the artist statement"
+                    />
+                    <a className={styles.reachUrl} href={WHOAMI_URL}>
+                      {WHOAMI_URL.replace(/^https?:\/\//, '')}
+                    </a>
+                  </div>
+                </div>
+                <div className={styles.aboutBody}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{BIO}</ReactMarkdown>
+                </div>
+              </section>
+            </>
+          )}
+
+          {chunk.map((p, i) => (
+            <ProjectRow key={p.slug} project={p} flip={(s * ROWS_PER_SHEET + i) % 2 === 1} />
+          ))}
+
+          {s === sheets.length - 1 && (
+            <footer className={styles.foot}>
+              <span>
+                0xG * works * {PROJECTS.length} projects * {today}
+              </span>
+              <a className={styles.headLink} href={PORTFOLIO_URL}>
+                {PORTFOLIO_URL.replace(/^https?:\/\//, '')}
               </a>
-            </div>
-          </div>
-          <div className={styles.aboutBody}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{BIO}</ReactMarkdown>
-          </div>
-        </section>
-
-        {BY_DATE_DESC.map((p, i) => (
-          <ProjectRow key={p.slug} project={p} flip={i % 2 === 1} />
-        ))}
-
-        <footer className={styles.foot}>
-          <span>
-            0xG * works * {PROJECTS.length} projects * {today}
-          </span>
-          <a className={styles.headLink} href={PORTFOLIO_URL}>
-            {PORTFOLIO_URL.replace(/^https?:\/\//, '')}
-          </a>
-        </footer>
-      </div>
+            </footer>
+          )}
+        </div>
+      ))}
     </div>
   )
 }
