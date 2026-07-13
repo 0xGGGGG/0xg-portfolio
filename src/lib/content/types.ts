@@ -72,6 +72,8 @@ export interface Project {
   ordinal: number
   title: string
   subtitle?: string
+  /** hand-written short description (≤50 words) for compact contexts (print) */
+  summary?: string
   /** collaborators / artist of the work */
   by: string[]
   role?: string

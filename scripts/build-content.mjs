@@ -177,6 +177,7 @@ async function main() {
       ordinal: proj.ordinal,
       title: fm.title || readme.title || proj.slug,
       subtitle: fm.subtitle || undefined,
+      summary: fm.summary || undefined,
       // explicit frontmatter (even empty) wins; only fall back to the README
       // parse when the field is absent from the frontmatter entirely
       by: fm.by !== undefined ? arr(fm.by) : readme.by,

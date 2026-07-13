@@ -3,6 +3,7 @@ import remarkGfm from 'remark-gfm'
 import type { Project } from '@/lib/content/manifest'
 import Pill from '@/components/ui/Pill'
 import ProjectIcon from '@/components/ui/ProjectIcon'
+import { printHero } from './printHero'
 import styles from './PrintCard.module.css'
 
 /** the single floating "attractor" card: description + first image + links
@@ -11,15 +12,7 @@ import styles from './PrintCard.module.css'
  *  page's own bottom-right corner (see PrintPage). */
 export default function PrintCard({ project }: { project: Project }) {
   const meta = [project.role, project.place, project.date].filter(Boolean) as string[]
-  // a static print page can't play video — use the first still image, falling
-  // back to a video's poster frame if the project has no image media at all.
-  const heroImage = project.media.find((m) => m.kind === 'image')
-  const heroVideo = project.media.find((m) => m.kind === 'video')
-  const hero = heroImage
-    ? { src: heroImage.src, sources: heroImage.sources, alt: heroImage.alt }
-    : heroVideo?.poster
-      ? { src: heroVideo.poster, sources: [], alt: heroVideo.alt }
-      : undefined
+  const hero = printHero(project)
 
   return (
     <div className={styles.card} style={{ ['--c' as string]: project.accent }}>

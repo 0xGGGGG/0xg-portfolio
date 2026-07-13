@@ -12,6 +12,7 @@ export const PROJECTS: Project[] = [
     "seq": 1,
     "ordinal": 0,
     "title": "Relate — Talk With Me",
+    "summary": "An installation by **Andrea Familari** at **uzwei**, Dortmunder U: a room where visitors speak with the work and the work answers. I built the conversational layer, an NLX.ai voice-bot integration for Unreal Engine, delivered as a Blueprint component.",
     "by": [
       "Andrea Familari"
     ],
@@ -143,6 +144,7 @@ export const PROJECTS: Project[] = [
     "seq": 2,
     "ordinal": 1,
     "title": "TOLSim",
+    "summary": "A small physics + mixed-reality builder prototype around a custom **kinetic joint system**: one type of joint, one type of stick; from those two primitives you assemble geometric forms in passthrough MR. Built with Unreal Engine and its MetaXR plugins, C++ and blueprints.",
     "by": [],
     "role": "MR Prototype",
     "place": "Turkey",
@@ -218,6 +220,7 @@ export const PROJECTS: Project[] = [
     "seq": 3,
     "ordinal": 2,
     "title": "Synesthesia MR",
+    "summary": "For the **Cyberdelic Hackathon** (Berlin, Nov 2025) I built a **Meta Quest** mixed-reality app that alters your vision from real-time sensor data. Here the signal came from a microphone and a biotron sensor on fruits and vegetables, but the idea generalizes to any sensor: EEG, pressure, heart rate.",
     "by": [
       "Cyberdelic Nexus Society"
     ],
@@ -384,6 +387,7 @@ export const PROJECTS: Project[] = [
     "seq": 4,
     "ordinal": 3,
     "title": "Nostalgia is the Extended Feedback",
+    "summary": "A game and solo exhibition by **Joaquina Salgado** at **SOMA Art, Berlin**\n(2025). I did electronics, programming and setup:\n\n- a **Raspberry Pi Zero 2** driving the screens that play the animation loops\n- a **Raspberry Pi Pico** for the trackball",
     "by": [
       "Joaquina Salgado"
     ],
@@ -564,6 +568,7 @@ export const PROJECTS: Project[] = [
     "seq": 1,
     "ordinal": 4,
     "title": "Chaos Jam & Research",
+    "summary": "Active member of Chaos Emblematic e.V.:\n\n- performing live visuals at jams with custom-made tools, devices and scenes\n- researching spatial computing and HCI as live feedback loops between\n  **movement ⟷ sound ⟷ visuals**, co-creating organic moments",
     "by": [],
     "role": "Live Visuals",
     "place": "Berlin",
@@ -723,6 +728,7 @@ export const PROJECTS: Project[] = [
     "seq": 2,
     "ordinal": 5,
     "title": "0xGCG — Grow. Corrupt. Glitch.",
+    "summary": "**Grow. Corrupt. Glitch.** It's a vibe. A **3-minute immersive projection show** at **KKW (Kunstkraftwerk) Leipzig**, being developed alongside the **Node Institute** _Creative Masterclass: Immersive Room_.",
     "by": [],
     "role": "Immersive Room",
     "place": "Kunstkraftwerk, Leipzig",

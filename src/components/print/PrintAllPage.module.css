@@ -1,0 +1,318 @@
+/* /print/all — an A4-flow document, unlike the fixed 16:9 flyer. The sheet is
+   A4-wide (794px = 210mm @ 96dpi) and flows naturally; the browser paginates
+   at print time. Keep this CSS and PrintPage.module.css from loading together
+   — both declare @page, and @page is global (main.tsx lazy-loads one or the
+   other for exactly this reason). */
+@page {
+  size: A4 portrait;
+  /* top margin repeats on every page — without it, page 2+ content starts at
+     the raw paper edge (the sheet's own padding only exists at the top of the
+     flow). The root's black canvas background still paints under the margin
+     area, so there are no white bands. */
+  margin: 8mm 0;
+}
+/* page 1 already gets its top spacing from the sheet's padding — no extra */
+@page :first {
+  margin-top: 0;
+}
+
+.stage {
+  min-height: 100vh;
+  background: #000;
+  padding: 40px 16px 64px;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.stage * {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.sheet {
+  width: 794px; /* 210mm */
+  margin: 0 auto;
+  padding: 42px 52px 36px;
+  background-color: #000;
+  /* subtle starfield + constellation figures — the site's identity, printed.
+     Inline SVG tile (sheet-wide, repeats vertically) so it needs no asset. */
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='794' height='640' viewBox='0 0 794 640'><g fill='%23fff'><circle cx='360.0' cy='357.3' r='1.24' opacity='0.17'/><circle cx='403.1' cy='374.5' r='0.65' opacity='0.18'/><circle cx='498.0' cy='502.8' r='0.58' opacity='0.15'/><circle cx='78.5' cy='513.2' r='1.05' opacity='0.11'/><circle cx='772.1' cy='610.0' r='1.02' opacity='0.2'/><circle cx='130.5' cy='17.4' r='0.92' opacity='0.11'/><circle cx='156.0' cy='159.0' r='0.52' opacity='0.17'/><circle cx='350.7' cy='533.7' r='0.92' opacity='0.2'/><circle cx='396.8' cy='421.4' r='0.87' opacity='0.14'/><circle cx='784.2' cy='629.3' r='1.17' opacity='0.21'/><circle cx='253.3' cy='151.3' r='0.73' opacity='0.11'/><circle cx='604.2' cy='257.8' r='1.18' opacity='0.16'/><circle cx='753.4' cy='536.7' r='0.5' opacity='0.13'/><circle cx='716.2' cy='301.3' r='1.28' opacity='0.16'/><circle cx='64.8' cy='400.8' r='1.12' opacity='0.14'/><circle cx='75.8' cy='215.5' r='1.27' opacity='0.22'/><circle cx='99.8' cy='161.7' r='0.58' opacity='0.11'/><circle cx='628.1' cy='118.9' r='0.95' opacity='0.17'/><circle cx='156.4' cy='464.7' r='0.6' opacity='0.2'/><circle cx='98.6' cy='270.6' r='0.67' opacity='0.14'/><circle cx='763.4' cy='509.3' r='0.74' opacity='0.24'/><circle cx='171.9' cy='254.0' r='1.18' opacity='0.2'/><circle cx='86.1' cy='625.3' r='0.67' opacity='0.14'/><circle cx='609.2' cy='213.3' r='0.74' opacity='0.11'/><circle cx='78.1' cy='371.6' r='0.69' opacity='0.2'/><circle cx='297.2' cy='290.8' r='1.27' opacity='0.18'/><circle cx='455.0' cy='548.7' r='0.65' opacity='0.12'/><circle cx='714.8' cy='518.3' r='0.7' opacity='0.13'/><circle cx='583.3' cy='594.8' r='0.66' opacity='0.25'/><circle cx='694.3' cy='384.6' r='0.84' opacity='0.12'/><circle cx='38.1' cy='608.7' r='0.69' opacity='0.21'/><circle cx='207.9' cy='522.0' r='0.98' opacity='0.15'/><circle cx='144.5' cy='457.5' r='0.56' opacity='0.14'/><circle cx='443.2' cy='539.9' r='0.99' opacity='0.14'/><circle cx='721.7' cy='135.3' r='0.51' opacity='0.14'/><circle cx='354.8' cy='45.7' r='0.64' opacity='0.16'/><circle cx='453.1' cy='90.1' r='0.79' opacity='0.24'/><circle cx='770.8' cy='417.9' r='1.05' opacity='0.19'/><circle cx='117.2' cy='29.9' r='0.51' opacity='0.25'/><circle cx='553.4' cy='608.8' r='0.52' opacity='0.2'/><circle cx='383.2' cy='463.8' r='0.76' opacity='0.26'/><circle cx='66.6' cy='348.8' r='1.09' opacity='0.24'/><circle cx='581.5' cy='447.1' r='1.13' opacity='0.25'/><circle cx='281.7' cy='435.5' r='1.22' opacity='0.24'/><circle cx='332.5' cy='501.3' r='1.19' opacity='0.19'/><circle cx='494.2' cy='246.6' r='0.97' opacity='0.2'/></g><g stroke='%23fff' stroke-opacity='0.07' stroke-width='0.8' fill='none'><path d='M118 84 L168 58 L212 96 L186 142 L134 128'/><path d='M596 176 L648 148 L702 188 L662 232'/><path d='M296 478 L358 452 L402 498 L352 532 L306 518'/><path d='M556 566 L608 584 L642 542'/><path d='M60 330 L102 306 L126 348'/></g><g fill='%23fff'><circle cx='118' cy='84' r='1.4' opacity='0.32'/><circle cx='168' cy='58' r='1.4' opacity='0.32'/><circle cx='212' cy='96' r='1.4' opacity='0.32'/><circle cx='186' cy='142' r='1.4' opacity='0.32'/><circle cx='134' cy='128' r='1.4' opacity='0.32'/><circle cx='596' cy='176' r='1.4' opacity='0.32'/><circle cx='648' cy='148' r='1.4' opacity='0.32'/><circle cx='702' cy='188' r='1.4' opacity='0.32'/><circle cx='662' cy='232' r='1.4' opacity='0.32'/><circle cx='296' cy='478' r='1.4' opacity='0.32'/><circle cx='358' cy='452' r='1.4' opacity='0.32'/><circle cx='402' cy='498' r='1.4' opacity='0.32'/><circle cx='352' cy='532' r='1.4' opacity='0.32'/><circle cx='306' cy='518' r='1.4' opacity='0.32'/><circle cx='556' cy='566' r='1.4' opacity='0.32'/><circle cx='608' cy='584' r='1.4' opacity='0.32'/><circle cx='642' cy='542' r='1.4' opacity='0.32'/><circle cx='60' cy='330' r='1.4' opacity='0.32'/><circle cx='102' cy='306' r='1.4' opacity='0.32'/><circle cx='126' cy='348' r='1.4' opacity='0.32'/></g></svg>");
+  background-size: 794px 640px;
+  background-repeat: repeat;
+  /* screen-only hint of the paper edge; dropped at print */
+  outline: 1px solid rgba(180, 180, 180, 0.14);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 15px;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+.brandTag {
+  font-size: 9px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.headMeta {
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.headRight {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+}
+.headLink {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* shared chrome bits */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+.sep {
+  margin: 0 7px;
+  color: var(--faint);
+}
+.reach {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.reachQr {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--radius);
+  padding: 4px;
+  background: #e8e8e8;
+}
+.reachUrl {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- whoami ---- */
+.about {
+  padding: 14px 0 16px;
+  border-top: 1px solid var(--hairline);
+  break-inside: avoid;
+}
+.aboutHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+.aboutIntro {
+  flex: 1;
+  min-width: 0;
+}
+.aboutLead {
+  margin-top: 8px;
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+.aboutBody {
+  margin-top: 10px;
+  column-count: 2;
+  column-gap: 32px;
+  font-size: 12px;
+  line-height: 1.55;
+  /* one tick brighter than --dim (#888) — print asked for more presence */
+  color: #b0b0b0;
+}
+.aboutBody :global(p) {
+  margin-bottom: 0.7em;
+  break-inside: avoid;
+}
+.aboutBody :global(ul) {
+  /* the global reset zeroes padding, which hides the bullets */
+  padding-left: 1.1em;
+}
+.aboutBody :global(li) {
+  margin-bottom: 0.55em;
+  break-inside: avoid;
+}
+.aboutBody :global(strong) {
+  color: var(--ink);
+}
+
+/* ---- project rows ---- */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 24px;
+  padding: 9px 0;
+  border-top: 1px solid var(--hairline);
+  break-inside: avoid;
+}
+/* alternate text/media sides so the run of rows reads as a rhythm, not a table */
+.flip {
+  grid-template-columns: 180px minmax(0, 1fr);
+}
+.flip .rowText {
+  order: 2;
+  border-left: 0;
+  border-right: 2px solid var(--c);
+  padding-left: 0;
+  padding-right: 16px;
+}
+.flip .rowMedia {
+  order: 1;
+}
+
+.rowText {
+  min-width: 0;
+  border-left: 2px solid var(--c);
+  padding-left: 16px;
+}
+.title {
+  margin: 6px 0 4px;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+.meta {
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.by {
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--dim);
+}
+.excerpt {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.55;
+  /* emergency cap only — the char budget in PrintAllPage.tsx does the real
+     truncation (at paragraph boundaries, so text never cuts mid-line) */
+  max-height: 18em;
+  overflow: hidden;
+}
+.excerpt :global(p) {
+  margin-bottom: 0.6em;
+}
+.excerpt :global(ul) {
+  /* the global reset zeroes padding, which pushes bullets outside the
+     overflow-hidden box — restore just enough for them to show */
+  padding-left: 1.2em;
+  margin-bottom: 0.6em;
+}
+.excerpt :global(li) {
+  margin-bottom: 0.3em;
+}
+.excerpt :global(strong) {
+  color: #fff;
+}
+.excerpt :global(a) {
+  color: var(--c);
+  text-decoration: underline;
+}
+.rowMedia {
+  min-width: 0;
+}
+/* the project's QR + deep link, under the summary text */
+.rowReach {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* 4:5 frame; the image is contained + centered, and a blurred cover copy
+   of itself fills the letterbox areas behind it */
+.hero {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #0a0a0a;
+}
+.heroBlur {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* over-scale so the blur doesn't pull in transparent edges */
+  transform: scale(1.2);
+  filter: blur(16px) brightness(0.55);
+}
+.heroFit {
+  position: absolute;
+  inset: 0;
+}
+.heroFit img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 13px;
+  border-top: 1px solid var(--hairline);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+@media print {
+  html,
+  body {
+    background: #000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .stage {
+    padding: 0;
+  }
+  .sheet {
+    width: 210mm;
+    margin: 0;
+    /* page 1's top spacing (page 2+ get theirs from the @page margin) */
+    padding: 10mm 12mm 2mm;
+    outline: none;
+  }
+  /* large-blur text-shadow rasterizes as a solid block in Chrome's real
+     print/PDF pipeline instead of a soft glow — same bug as the flyer. */
+  .brand {
+    text-shadow: none;
+  }
+}
