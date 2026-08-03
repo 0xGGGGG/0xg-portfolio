@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import { NEUTRAL_ACCENT, PROJECTS, type Project } from '@/lib/content/manifest'
 import ProjectIcon from '@/components/ui/ProjectIcon'
 import { printHero } from './printHero'
+import { EDUCATION, ENGINEERING, type Experience } from './cvData'
 import styles from './PrintAllPage.module.css'
 
 const PORTFOLIO_URL = 'https://0xg.gg'
@@ -106,20 +107,56 @@ function ProjectRow({ project, flip }: { project: Project; flip: boolean }) {
   )
 }
 
-/** the /print/all CV/portfolio document: a condensed whoami up top, then every
- *  project (newest first) as a compact row — short summary + one square image +
- *  QR — alternating text/media sides. Each A4 page is an EXPLICIT sheet box
- *  (3 project rows per sheet; the first also carries the whoami, the last the
- *  footer): at print time every sheet is exactly one page and paints the full
- *  paper itself (background + starfield edge to edge) — relying on @page
- *  margins instead leaves bands painted by the browser canvas, which renders
- *  a subtly different black and no stars. */
+/** numbered section label — small but visible, the instrument-panel ritual */
+function SectionHead({ n, label, tag }: { n: string; label: string; tag?: string }) {
+  return (
+    <div className={styles.sectionHead}>
+      <span className={styles.sectionNum}>{n}</span>
+      <span className={styles.sectionLabel}>{label}</span>
+      {tag && <span className={styles.sectionTag}>{tag}</span>}
+      <span className={styles.sectionRule} />
+    </div>
+  )
+}
+
+/** one professional experience — no thumbnail, no QR, just the facts */
+function XpRow({ xp }: { xp: Experience }) {
+  return (
+    <section className={styles.xp}>
+      <div className={styles.xpHead}>
+        <h3 className={styles.xpTitle}>{xp.role}</h3>
+        <span className={styles.xpOrg}>{xp.org}</span>
+        <span className={styles.xpDuration}>{xp.duration}</span>
+      </div>
+      {xp.desc && (
+        <div className={styles.xpDesc}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{xp.desc}</ReactMarkdown>
+        </div>
+      )}
+    </section>
+  )
+}
+
+/** the printable A4 document, in two flavors:
+ *  - `art`  — portfolio only: condensed whoami up top, then every project
+ *    (newest first) as a compact row — short summary + one square image + QR —
+ *    alternating text/media sides.
+ *  - `all`  — the full CV: same as `art` but the projects run under an ART
+ *    label, followed by ENGINEERING (professional experience from the
+ *    self.gungor.dev CV, as a plain list) and EDUCATION on a final sheet.
+ *  Each A4 page is an EXPLICIT sheet box (3 project rows per sheet; the first
+ *  also carries the whoami, the last the footer): at print time every sheet is
+ *  exactly one page and paints the full paper itself (background + starfield
+ *  edge to edge) — relying on @page margins instead leaves bands painted by
+ *  the browser canvas, which renders a subtly different black and no stars. */
 const ROWS_PER_SHEET = 3
 
-export default function PrintAllPage() {
+export default function PrintAllPage({ variant = 'all' }: { variant?: 'art' | 'all' }) {
+  const isCv = variant === 'all'
+
   useEffect(() => {
-    document.title = '0xG — works — print'
-  }, [])
+    document.title = isCv ? '0xG — cv — print' : '0xG — works — print'
+  }, [isCv])
 
   const today = new Date().toISOString().slice(0, 10)
 
@@ -138,7 +175,7 @@ export default function PrintAllPage() {
                   <span>0xG</span>
                   <span className={styles.brandTag}>works</span>
                 </a>
-                <span className={styles.headMeta}>print * portfolio</span>
+                <span className={styles.headMeta}>{isCv ? 'print * cv' : 'print * portfolio'}</span>
                 <span className={styles.headRight}>
                   <span>{today}</span>
                   <span>*</span>
@@ -174,11 +211,13 @@ export default function PrintAllPage() {
             </>
           )}
 
+          {s === 0 && isCv && <SectionHead n="01" label="art" tag="selected works" />}
+
           {chunk.map((p, i) => (
             <ProjectRow key={p.slug} project={p} flip={(s * ROWS_PER_SHEET + i) % 2 === 1} />
           ))}
 
-          {s === sheets.length - 1 && (
+          {!isCv && s === sheets.length - 1 && (
             <footer className={styles.foot}>
               <span>
                 0xG * works * {PROJECTS.length} projects * {today}
@@ -190,6 +229,29 @@ export default function PrintAllPage() {
           )}
         </div>
       ))}
+
+      {isCv && (
+        <div className={styles.sheet} style={{ ['--c' as string]: NEUTRAL_ACCENT }}>
+          <SectionHead n="02" label="engineering" tag="professional experience" />
+          {ENGINEERING.map((xp) => (
+            <XpRow key={`${xp.org}-${xp.duration}`} xp={xp} />
+          ))}
+
+          <SectionHead n="03" label="education" />
+          {EDUCATION.map((xp) => (
+            <XpRow key={`${xp.org}-${xp.duration}`} xp={xp} />
+          ))}
+
+          <footer className={styles.foot}>
+            <span>
+              0xG * cv * art + engineering * {today}
+            </span>
+            <a className={styles.headLink} href={PORTFOLIO_URL}>
+              {PORTFOLIO_URL.replace(/^https?:\/\//, '')}
+            </a>
+          </footer>
+        </div>
+      )}
     </div>
   )
 }

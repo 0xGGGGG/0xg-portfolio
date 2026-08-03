@@ -162,6 +162,82 @@
   color: var(--ink);
 }
 
+/* ---- section labels (01 art / 02 engineering / 03 education) ---- */
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 0 6px;
+  break-inside: avoid;
+  break-after: avoid;
+}
+.sectionNum {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--faint);
+}
+.sectionLabel {
+  font-size: 12px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+.sectionTag {
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.sectionRule {
+  flex: 1;
+  height: 1px;
+  align-self: center;
+  background: var(--hairline);
+}
+
+/* ---- professional experience rows (ENGINEERING / EDUCATION) ---- */
+.xp {
+  padding: 8px 0 9px;
+  border-top: 1px solid var(--hairline);
+  border-left: 2px solid var(--c);
+  padding-left: 16px;
+  break-inside: avoid;
+}
+.xpHead {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.xpTitle {
+  font-size: 13px;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+.xpOrg {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+.xpDuration {
+  margin-left: auto;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
+.xpDesc {
+  margin-top: 4px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #b0b0b0;
+}
+.xpDesc :global(strong) {
+  color: var(--ink);
+}
+
 /* ---- project rows ---- */
 .row {
   display: grid;
@@ -319,7 +395,8 @@
   }
   /* large-blur text-shadow rasterizes as a solid block in Chrome's real
      print/PDF pipeline instead of a soft glow — same bug as the flyer. */
-  .brand {
+  .brand,
+  .sectionLabel {
     text-shadow: none;
   }
 }
